@@ -1,2 +1,15 @@
-# viccovlog-davinci-materials
-DaVinci Resolve Tutorials Materials for beginners
+# ViccoVlog 官方视频素材更新
+---
+
+### 前述
+```
+鉴于百度受人蛊惑无耻封杀，原本没有任何问题的文件也会被屏蔽，所以为了日后视频数量积攒过多，不至于再遇到类似的情况，故直接移居这里
+```
+
+### 文档说明
+```
+按照视频发布日期对应从前往后
+```
+
+
+* [Vicco] 自制达芬奇黑边遮幅小工具使用指南 | 达芬奇3分钟  [素材下载]()
