@@ -1,0 +1,149 @@
+{
+	Tools = ordered() {
+		ViccoVlog_Transitions_Wipe_Right = MacroOperator {
+			Inputs = ordered() {
+				Comments = Input { Value = "Transition made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
+				MainInput1 = InstanceInput {
+					SourceOp = "wipe1",
+					Source = "Input",
+				},
+				MainInput2 = InstanceInput {
+					SourceOp = "wipe2",
+					Source = "Input",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "DirectionalBlur1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				wipe1 = Transform {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Center = Input {
+							Value = { 0.987307228452003, 0.5 },
+							Expression = "Point(M.T1 + 1, 0.5 )",
+						},
+						Edges = Input { Value = 3, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 605, -49.5 } },
+				},
+				M = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					NameSet = true,
+					Inputs = {
+						Mix = Input {
+							SourceOp = "Calculation3",
+							Source = "Result",
+						},
+						Background = Input {
+							SourceOp = "wipe1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "wipe2",
+							Source = "Output",
+						},
+						T1 = Input {
+							SourceOp = "Calculation1",
+							Source = "Result",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, 82.5 } },
+					UserControls = ordered() { T1 = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", LINKS_Name = "T1" } }
+				},
+				Calculation3 = Calculation {
+					CtrlWZoom = false,
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonMFirstOperand1",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				CalculationonMFirstOperand1 = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[11] = { 0, RH = { 11.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+						[12] = { 1, LH = { 11.6666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+					}
+				},
+				Calculation1 = Calculation {
+					CtrlWZoom = false,
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonMFirstOperand",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				CalculationonMFirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
+					NameSet = true,
+					KeyFrames = {
+						[0] = { -0.5, RH = { 10.95, -0.789999999999999 } },
+						[12] = { 0.94, LH = { 12, -0.11096471456978 }, RH = { 12.000002269843, 1.9900096482936 } },
+						[23] = { 2.5, LH = { 13.1, 2.705 } }
+					}
+				},
+				wipe2 = Transform {
+					NameSet = true,
+					Inputs = {
+						Center = Input {
+							Value = { 3.5, 1.5 },
+							Expression = "Point(M.T1 + 1 , 1.5)",
+						},
+						Pivot = Input { Expression = "wipe1.Pivot", },
+						Angle = Input { Value = 180, },
+						Edges = Input { Value = 3, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 550, 82.5 } },
+				},
+				DirectionalBlur1 = DirectionalBlur {
+					Inputs = {
+						Length = Input {
+							SourceOp = "Calculation2",
+							Source = "Result",
+						},
+						Input = Input {
+							SourceOp = "M",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 990, 82.5 } },
+				},
+				Calculation2 = Calculation {
+					CtrlWShown = false,
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonDirectionalBlur1FirstOperand",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				CalculationonDirectionalBlur1FirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 11.98, 0 } },
+						[12] = { 0.107, LH = { 10.04, 0.107 }, RH = { 14, 0.107 } },
+						[23] = { 0, LH = { 12.04, 0 } }
+					}
+				}
+			},
+		}
+	},
+	ActiveTool = "ViccoVlog_Transitions_Wipe_Right"
+}

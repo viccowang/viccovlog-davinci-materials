@@ -1,0 +1,191 @@
+{
+	Tools = ordered() {
+		ViccoVlog_Transitions_Spin_Clockwise = MacroOperator {
+			Inputs = ordered() {
+				Comments = Input { Value = "Transition made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
+				MainInput1 = InstanceInput {
+					SourceOp = "zoom1",
+					Source = "Input",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "zoom1",
+					Source = "Pivot",
+				},
+				MainInput2 = InstanceInput {
+					SourceOp = "zoom2",
+					Source = "Input",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "径向模糊1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				zoom1 = Transform {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Angle = Input {
+							SourceOp = "Calculation1_2",
+							Source = "Result",
+						},
+						Edges = Input { Value = 3, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 687.5, -82.5 } },
+				},
+				Calculation1_2 = Calculation {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "Calculationonzoom1FirstOperand",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				Calculationonzoom1FirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 12, -0.436363636363636 } },
+						[12] = { -180, LH = { 12, -80.0000000000024 } }
+					}
+				},
+				Dissolve1 = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					Inputs = {
+						Mix = Input {
+							SourceOp = "Calculation3",
+							Source = "Result",
+						},
+						Background = Input {
+							SourceOp = "zoom1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "zoom2",
+							Source = "Output",
+						},
+						T1 = Input {
+							SourceOp = "ResolveParameter2",
+							Source = "Value",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 907.5, 49.5 } },
+					UserControls = ordered() { T1 = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", LINKS_Name = "T1" } }
+				},
+				Calculation3 = Calculation {
+					CtrlWZoom = false,
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonDissolve1FirstOperand",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				CalculationonDissolve1FirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[11] = { 0, RH = { 11.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+						[12] = { 1, LH = { 11.6666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+					}
+				},
+				ResolveParameter2 = ResolveParameter {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+				},
+				zoom2 = Transform {
+					NameSet = true,
+					Inputs = {
+						Pivot = Input { Expression = "zoom1.Pivot", },
+						Angle = Input {
+							SourceOp = "Calculation2",
+							Source = "Result",
+						},
+						Edges = Input { Value = 3, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 687.5, 49.5 } },
+				},
+				Calculation2 = Calculation {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "Calculationonzoom2FirstOperand",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				Calculationonzoom2FirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
+					NameSet = true,
+					KeyFrames = {
+						[12] = { -180, RH = { 12, -320.000000000011 } },
+						[23] = { -360, LH = { 15.020006, -360.4 } }
+					}
+				},
+				["径向模糊1"] = ofx.com.blackmagicdesign.resolvefx.radialblur {
+					Inputs = {
+						Source = Input {
+							SourceOp = "Dissolve1",
+							Source = "Output",
+						},
+						SmoothStrength = Input {
+							SourceOp = "Calculation7",
+							Source = "Result",
+						},
+						CenterXPos = Input {
+							Value = 0.5,
+							Expression = "zoom1.Pivot.X",
+						},
+						CenterYPos = Input {
+							Value = 0.5,
+							Expression = "zoom1.Pivot.Y",
+						},
+						BorderType = Input { Value = FuID { "BORDER_TYPE_REFLECT" }, },
+						BlendAmount = Input { Value = 0, },
+						blendGroup = Input { Value = 1, },
+						blend = Input { Value = 0, },
+						ignoreContentShape = Input { Value = 0, },
+						legacyIsProcessRGBOnly = Input { Value = 0, },
+						resolvefxVersion = Input { Value = "2.3", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1182.5, 49.5 } },
+				},
+				Calculation7 = Calculation {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "Calculationon径向模糊1FirstOperand",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				["Calculationon径向模糊1FirstOperand"] = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 9.9, 0 } },
+						[12] = { 0.6, LH = { 8.00040006637573, 0.600695582597152 }, RH = { 15.6662999391556, 0.599362382619277 } },
+						[23] = { -0.004, LH = { 14, -0.004 } }
+					}
+				}
+			},
+		}
+	},
+	ActiveTool = "ViccoVlog_Transitions_Spin_Clockwise"
+}

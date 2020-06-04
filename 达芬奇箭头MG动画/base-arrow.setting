@@ -1,0 +1,194 @@
+{
+	Tools = ordered() {
+		arrowSide = RectangleMask {
+			NameSet = true,
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					Value = { 0.15, 0.588276783955039 },
+					Expression = "Point(Width / 2, 1 - Height / 2)",
+				},
+				Width = Input {
+					SourceOp = "Rectangle1Width",
+					Source = "Value",
+				},
+				Height = Input {
+					SourceOp = "Rectangle1Height",
+					Source = "Value",
+				},
+				CornerRadius = Input { Value = 0.0937, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 550, 49.5 } },
+		},
+		Rectangle1Width = BezierSpline {
+			SplineColor = { Red = 225, Green = 255, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[60] = { 0.3, RH = { 65.8, 0.139 }, Flags = { Linear = true } },
+				[89] = { 0, LH = { 79.3333333333333, 0 } }
+			}
+		},
+		Rectangle1Height = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 52.6, 1 } },
+				[60] = { 0.3, LH = { 51.55, 0.569 }, RH = { 65.8182053891138, 0.137384557416703 } },
+				[89] = { 0, LH = { 79.3333333333333, 0 } }
+			}
+		},
+		arrowSideBg = Background {
+			NameSet = true,
+			Inputs = {
+				GlobalOut = Input { Value = 89, },
+				Width = Input { Value = 500, },
+				Height = Input { Value = 500, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 1, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "arrowSide",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 550, 82.5 } },
+		},
+		Instance_arrowSide = RectangleMask {
+			NameSet = true,
+			SourceOp = "arrowSide",
+			Inputs = {
+				SettingsNest = Input { },
+				Center = Input { Expression = "Point(Width / 2, 1 - Height / 2)", },
+				["ShapeRasterizer.Nest"] = Input { },
+				CommentsNest = Input { },
+				FrameRenderScriptNest = Input { },
+				StartRenderScripts = Input { },
+				EndRenderScripts = Input { },
+				EffectMask = Input { }
+			},
+			ViewInfo = OperatorInfo { Pos = { 770, 49.5 } },
+		},
+		Instance_arrowSideBg = Background {
+			NameSet = true,
+			SourceOp = "arrowSideBg",
+			Inputs = {
+				EffectMask = Input {
+					SourceOp = "Instance_arrowSide",
+					Source = "Mask",
+				},
+				SettingsNest = Input { },
+				ImageNest = Input { },
+				["Gamut.ColorSpaceNest"] = Input { },
+				["Gamut.GammaSpaceNest"] = Input { },
+				BackgroundNest = Input { },
+				CommentsNest = Input { },
+				FrameRenderScriptNest = Input { },
+				StartRenderScripts = Input { },
+				EndRenderScripts = Input { },
+			},
+			ViewInfo = OperatorInfo { Pos = { 770, 82.5 } },
+		},
+		Transform1 = Transform {
+			Inputs = {
+				Angle = Input { Value = 90, },
+				FlipHoriz = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "Instance_arrowSideBg",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 770, 115.5 } },
+		},
+		Merge2 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Merge1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Transform1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 770, 148.5 } },
+		},
+		Merge1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "arrowBg",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "arrowSideBg",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 550, 148.5 } },
+		},
+		arrowBg = Background {
+			NameSet = true,
+			Inputs = {
+				GlobalOut = Input { Value = 89, },
+				Width = Input { Value = 500, },
+				Height = Input { Value = 500, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftAlpha = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 148.5 } },
+		},
+		Transform2 = Transform {
+			CtrlWZoom = false,
+			Inputs = {
+				Size = Input { Value = 0.53, },
+				Angle = Input { Value = 225, },
+				Input = Input {
+					SourceOp = "Merge2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 770, 181.5 } },
+		},
+		Background1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 89, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 330, 247.5 } },
+		},
+		Merge3 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Background1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Transform2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 770, 247.5 } },
+		},
+		MediaOut1 = MediaOut {
+			Inputs = {
+				Index = Input { Value = "0", },
+				Input = Input {
+					SourceOp = "Merge3",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 247.5 } },
+		}
+	},
+	ActiveTool = "Transform2"
+}

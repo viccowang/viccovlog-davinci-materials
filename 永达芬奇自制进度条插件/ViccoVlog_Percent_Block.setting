@@ -1,0 +1,445 @@
+{
+	Tools = ordered() {
+		ViccoVlog_PercentBar_Block = MacroOperator {
+			Inputs = ordered() {
+				Comments = Input { Value = "PercentBar made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
+				PercentBlock = InstanceInput {
+					SourceOp = "BlockCtrl",
+					Source = "PercentBlock",
+					Page = "Controls",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "BlockCtrl",
+					Source = "Minuts",
+					Page = "Controls",
+					Default = 0,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "BlockCtrl",
+					Source = "Second",
+					Name = "Seconds",
+					Page = "Controls",
+					Default = 0,
+				},
+				TitleStyle = InstanceInput {
+					SourceOp = "Title",
+					Source = "TitleStyle",
+					Page = "Controls",
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Title",
+					Source = "StyledText",
+				},
+				Input11 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Font",
+					ControlGroup = 7,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Style",
+					ControlGroup = 7,
+				},
+				Input13 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Center",
+				},
+				Input14 = InstanceInput {
+					SourceOp = "Title",
+					Source = "LayoutSize",
+					MaxScale = 1.5,
+					Default = 1,
+				},
+				Input15 = InstanceInput {
+					SourceOp = "Title",
+					Source = "LineSpacingClone",
+					Default = 1,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "TitleBg",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 5,
+					Default = 1,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "TitleBg",
+					Source = "TopLeftGreen",
+					ControlGroup = 5,
+					Default = 1,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "TitleBg",
+					Source = "TopLeftBlue",
+					ControlGroup = 5,
+					Default = 1,
+				},
+				TimeStyle = InstanceInput {
+					SourceOp = "SecondBg",
+					Source = "TimeStyle",
+					Page = "Controls",
+				},
+				Input31 = InstanceInput {
+					SourceOp = "Second",
+					Source = "Font",
+					ControlGroup = 4,
+				},
+				Input32 = InstanceInput {
+					SourceOp = "Second",
+					Source = "Style",
+					ControlGroup = 4,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Second",
+					Source = "Center",
+				},
+				Input24 = InstanceInput {
+					SourceOp = "Second",
+					Source = "LayoutSize",
+					MaxScale = 1.5,
+					Default = 1,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "SecondBg",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "SecondBg",
+					Source = "TopLeftGreen",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "SecondBg",
+					Source = "TopLeftBlue",
+					ControlGroup = 4,
+					Default = 1,
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "textPercentCombined",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				BlockCtrl = Custom {
+					NameSet = true,
+					Inputs = {
+						PointIn1 = Input {
+							Value = { 0.0497, 0.0545 },
+							Expression = "Point(ViccoCtrl.NumberIn1 / 2, iif(  (Minuts * 60 + Second - (ViccoCtrl.OffsetMinutes * 60 + ViccoCtrl.OffsetSeconds)) / (comp.RenderEnd / ViccoCtrl.FrameRate)  >= 1, 1 - NumberIn2 / 2, iif( (Minuts * 60 + Second - (ViccoCtrl.OffsetMinutes * 60 + ViccoCtrl.OffsetSeconds)) / (comp.RenderEnd / ViccoCtrl.FrameRate)  <= 0, NumberIn2 / 2, (Minuts * 60 + Second - (ViccoCtrl.OffsetMinutes * 60 + ViccoCtrl.OffsetSeconds)) / (comp.RenderEnd / ViccoCtrl.FrameRate) ) ) )",
+						},
+						NumberIn1 = Input {
+							Value = 0.0994,
+							Expression = "ViccoCtrl.NumberIn1",
+						},
+						NumberIn2 = Input { Value = 0.109, },
+						NumberIn3 = Input { Value = 1, },
+						LUTIn1 = Input {
+							SourceOp = "BlockCtrlLUTIn1",
+							Source = "Value",
+						},
+						LUTIn2 = Input {
+							SourceOp = "BlockCtrlLUTIn2",
+							Source = "Value",
+						},
+						LUTIn3 = Input {
+							SourceOp = "BlockCtrlLUTIn3",
+							Source = "Value",
+						},
+						LUTIn4 = Input {
+							SourceOp = "BlockCtrlLUTIn4",
+							Source = "Value",
+						},
+						NumberControls = Input { Value = 1, },
+						NameforNumber1 = Input { Value = "Width", },
+						NameforNumber2 = Input { Value = "Height", },
+						ShowNumber3 = Input { Value = 0, },
+						NameforNumber3 = Input { Value = "Number", },
+						ShowNumber4 = Input { Value = 0, },
+						ShowNumber5 = Input { Value = 0, },
+						ShowNumber6 = Input { Value = 0, },
+						ShowNumber7 = Input { Value = 0, },
+						ShowNumber8 = Input { Value = 0, },
+						PointControls = Input { Value = 1, },
+						NameforPoint1 = Input { Value = "Position", },
+						ShowPoint2 = Input { Value = 0, },
+						ShowPoint3 = Input { Value = 0, },
+						ShowPoint4 = Input { Value = 0, },
+						LUTControls = Input { Value = 1, },
+						ShowLUT1 = Input { Value = 0, },
+						ShowLUT2 = Input { Value = 0, },
+						ShowLUT3 = Input { Value = 0, },
+						ShowLUT4 = Input { Value = 0, },
+						Minuts = Input { Value = 0, },
+						Second = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 935, 82.5 } },
+					UserControls = ordered() {
+						Minuts = {
+							LINKS_Name = "Minuts",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 1,
+							INP_Integer = true,
+							INP_MinScale = 0,
+							INP_MaxScale = 999,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 999,
+							IC_Steps = 1,
+							ICS_ControlPage = "Controls"
+						},
+						Second = {
+							LINKS_Name = "Second",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 1,
+							INP_Integer = true,
+							INP_MinScale = 0,
+							INP_MaxScale = 59,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 59,
+							IC_Steps = 1,
+							ICS_ControlPage = "Controls"
+						},
+						PercentBlock = {
+							LBLC_NumInputs = 2,
+							LINKS_Name = "Time",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					}
+				},
+				BlockCtrlLUTIn1 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 0, Blue = 0 },
+				},
+				BlockCtrlLUTIn2 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 204, Blue = 0 },
+				},
+				BlockCtrlLUTIn3 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 0, Blue = 204 },
+				},
+				BlockCtrlLUTIn4 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 204, Blue = 204 },
+				},
+				blockwrapper = RectangleMask {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input {
+							Value = { 0.0497, 0.0545 },
+							Expression = "BlockCtrl.PointIn1",
+						},
+						Width = Input {
+							Value = 0.0994,
+							Expression = "BlockCtrl.NumberIn1",
+						},
+						Height = Input {
+							Value = 0.109,
+							Expression = "BlockCtrl.NumberIn2",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 825, 82.5 } },
+				},
+				Second = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Position1 = Input { Value = 1, },
+						Offset1 = Input { Value = { 0, -1.105 }, },
+						StyledText = Input {
+							Value = "00:00",
+							Expression = "Text((iif( BlockCtrl.Minuts < 10, \"0\"..BlockCtrl.Minuts, BlockCtrl.Minuts)) .. \":\" .. (iif( BlockCtrl.Second < 10, \"0\"..BlockCtrl.Second, BlockCtrl.Second )))",
+						},
+						Font = Input { Value = "Tahoma", },
+						Style = Input { Value = "Regular", },
+						Size = Input { Value = 0.0852, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1045, 82.5 } },
+				},
+				block = Background {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "blockwrapper",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 825, 115.5 } },
+				},
+				SecondBg = Background {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Second",
+							Source = "Output",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 1, },
+						TopLeftBlue = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1045, 115.5 } },
+					UserControls = ordered() {
+						TimeStyle = {
+							LBLC_NumInputs = 7,
+							LINKS_Name = "Time Style",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					}
+				},
+				textPercentCombined = Merge {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "block",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "pos",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 825, 148.5 } },
+				},
+				Merge4 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "SecondBg",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "TitleBg",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1045, 148.5 } },
+				},
+				pos = Transform {
+					NameSet = true,
+					Inputs = {
+						Center = Input {
+							Value = { 0.0497, 0.0545 },
+							Expression = "Point(BlockCtrl.PointIn1.X, BlockCtrl.PointIn1.Y)",
+						},
+						Size = Input {
+							Value = 0.1988,
+							Expression = "BlockCtrl.NumberIn1 * 2",
+						},
+						Input = Input {
+							SourceOp = "Merge4",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 935, 148.5 } },
+				},
+				TitleBg = Background {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Title",
+							Source = "Output",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 1, },
+						TopLeftBlue = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1155, 148.5 } },
+				},
+				Title = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						StyledText = Input { Value = "ViccoVlog进度条", },
+						Font = Input { Value = "SimHei", },
+						Style = Input { Value = "Regular", },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1265, 148.5 } },
+					UserControls = ordered() {
+						TitleStyle = {
+							LBLC_NumInputs = 9,
+							LINKS_Name = "Title Style",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					}
+				}
+			},
+			Colors = { TileColor = { R = 0, G = 0.596078431372549, B = 0.6 }, }
+		}
+	},
+	ActiveTool = "ViccoVlog_PercentBar_Block"
+}

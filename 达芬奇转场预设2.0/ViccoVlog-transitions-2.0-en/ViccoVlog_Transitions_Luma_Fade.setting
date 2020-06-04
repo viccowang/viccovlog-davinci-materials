@@ -1,0 +1,117 @@
+{
+	Tools = ordered() {
+		ViccoVlogTransitionsLumaFade = MacroOperator {
+			Inputs = ordered() {
+				Comments = Input { Value = "Transition made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
+				MainInput2 = InstanceInput {
+					SourceOp = "M",
+					Source = "Background",
+					Name = "mediaIn1",
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "LumaKeyer1",
+					Source = "Input",
+					Name = "mediaIn2",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "M",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				M = Merge {
+					NameSet = true,
+					Inputs = {
+						Blend = Input {
+							SourceOp = "Calculation3",
+							Source = "Result",
+						},
+						Foreground = Input {
+							SourceOp = "LumaKeyer1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 715, 115.5 } },
+				},
+				Calculation3 = Calculation {
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonMFirstOperand",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				CalculationonMFirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 1, RH = { 7.66666666666667, 0.666666666666667 }, Flags = { Linear = true } },
+						[23] = { 0, LH = { 15.3333333333333, 0.333333333333333 }, Flags = { Linear = true } }
+					}
+				},
+				LumaKeyer1 = LumaKeyer {
+					CtrlWZoom = false,
+					CurrentSettings = 2,
+					CustomData = { Settings = { [1] = { Tools = ordered() { LumaKeyer1 = LumaKeyer { Inputs = { Low = Input { SourceOp = "Calculation1_1", Source = "Result" }, Filter = Input { Value = FuID { "Fast Gaussian" } }, Input = Input { SourceOp = "MediaIn1", Source = "Output" }, High = Input { SourceOp = "Calculation2_1", Source = "Result" }, MatteBlur = Input { Value = 0.24 } }, CtrlWZoom = false, ViewInfo = OperatorInfo { Pos = { 715, 181.5 } }, CustomData = {
+										} }, Calculation2_1 = Calculation { Inputs = { FirstOperand = Input { SourceOp = "CalculationonLumaKeyer1FirstOperand1", Source = "Value" }, FirstOperandTimeScale = Input { Value = 0.621621621621622, Expression = "23/comp.RenderEnd" } } }, CalculationonLumaKeyer1FirstOperand1 = BezierSpline { SplineColor = { Green = 242, Blue = 198, Red = 69 }, NameSet = true, KeyFrames = { [0] = { 0, RH = { 7.66666666666667, 0.333333333333333 }, Flags = { Linear = true } }, [23] = { 1, LH = { 15.3333333333333, 0.666666666666667 }, Flags = { Linear = true } } } }, Calculation1_1 = Calculation { Inputs = { FirstOperand = Input { SourceOp = "CalculationonLumaKeyer1FirstOperand1_1", Source = "Value" }, FirstOperandTimeScale = Input { Value = 0.621621621621622, Expression = "23/comp.RenderEnd" } }, CtrlWZoom = false }, CalculationonLumaKeyer1FirstOperand1_1 = BezierSpline { SplineColor = { Green = 242, Blue = 198, Red = 69 }, NameSet = true, KeyFrames = { [0] = { 0, RH = { 7.66666666666667, 0.333333333333333 }, Flags = { Linear = true } }, [23] = { 1, LH = { 15.3333333333333, 0.666666666666667 }, Flags = { Linear = true } } } } } }, [3] = { Tools = ordered() { LumaKeyer1 = LumaKeyer { Inputs = { Low = Input { SourceOp = "Calculation1", Source = "Result" }, Channel = Input { Value = 3 }, Input = Input { SourceOp = "MediaIn1", Source = "Output" }, High = Input { SourceOp = "Calculation2", Source = "Result" }, MatteBlur = Input { Value = 0.24 }, Filter = Input { Value = FuID { "Fast Gaussian" } } }, CtrlWZoom = false, ViewInfo = OperatorInfo { Pos = { 715, 181.5 } }, CustomData = {
+										} }, Calculation2 = Calculation { Inputs = { FirstOperand = Input { SourceOp = "CalculationonLumaKeyer1FirstOperand", Source = "Value" }, FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd" } }, CtrlWZoom = false }, CalculationonLumaKeyer1FirstOperand = BezierSpline { SplineColor = { Green = 242, Blue = 198, Red = 69 }, NameSet = true, KeyFrames = { [0] = { 0, RH = { 7.66666666666667, 0.333333333333333 }, Flags = { Linear = true } }, [23] = { 1, LH = { 15.3333333333333, 0.666666666666667 }, Flags = { Linear = true } } } }, Calculation1 = Calculation { Inputs = { FirstOperand = Input { SourceOp = "CalculationonLumaKeyer1FirstOperand_1", Source = "Value" }, FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd" } } }, CalculationonLumaKeyer1FirstOperand_1 = BezierSpline { SplineColor = { Green = 242, Blue = 198, Red = 69 }, NameSet = true, KeyFrames = { [0] = { 0, RH = { 7.66666666666667, 0.333333333333333 }, Flags = { Linear = true } }, [23] = { 1, LH = { 15.3333333333333, 0.666666666666667 }, Flags = { Linear = true } } } } } }, } },
+					Inputs = {
+						Channel = Input { Value = 4, },
+						High = Input {
+							SourceOp = "Calculation2_1",
+							Source = "Result",
+						},
+						Low = Input {
+							SourceOp = "Calculation1_1",
+							Source = "Result",
+						},
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MatteBlur = Input { Value = 0.24, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 715, 181.5 } },
+				},
+				Calculation2_1 = Calculation {
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonLumaKeyer1FirstOperand1",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				CalculationonLumaKeyer1FirstOperand1 = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 7.66666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+						[23] = { 1, LH = { 15.3333333333333, 0.666666666666667 }, Flags = { Linear = true } }
+					}
+				},
+				Calculation1_1 = Calculation {
+					CtrlWZoom = false,
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonLumaKeyer1FirstOperand",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
+					},
+				},
+				CalculationonLumaKeyer1FirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 7.66666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+						[23] = { 1, LH = { 15.3333333333333, 0.666666666666667 }, Flags = { Linear = true } }
+					}
+				}
+			},
+		}
+	},
+	ActiveTool = "ViccoVlogTransitionsLumaFade"
+}

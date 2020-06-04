@@ -1,0 +1,364 @@
+{
+	Tools = ordered() {
+		ViccoVlog_PercentBar_Master = MacroOperator {
+			Inputs = ordered() {
+				Comments = Input { Value = "PercentBar made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
+				PercentShape = InstanceInput {
+					SourceOp = "ViccoCtrl",
+					Source = "PercentShape",
+					Page = "Controls",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "ViccoCtrl",
+					Source = "NumberIn1",
+					Default = 0.0994,
+				},
+				PercentForeground = InstanceInput {
+						SourceOp = "percent_Percent",
+						Source = "PercentForeground",
+						Page = "Controls",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "percent_Percent",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 2,
+					Default = 0.11715,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "percent_Percent",
+					Source = "TopLeftGreen",
+					ControlGroup = 2,
+					Default = 0.1342468,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "percent_Percent",
+					Source = "TopLeftBlue",
+					ControlGroup = 2,
+					Default = 0.142,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "percent_Percent",
+					Source = "TopLeftAlpha",
+					ControlGroup = 2,
+					Default = 1,
+				},
+				PercentBackground = InstanceInput {
+						SourceOp = "percentBG",
+						Source = "PercentBackground",
+						Page = "Controls",
+				},
+				Input6 = InstanceInput {
+					SourceOp = "percentBG",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 3,
+					Default = 0,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "percentBG",
+					Source = "TopLeftGreen",
+					ControlGroup = 3,
+					Default = 0,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "percentBG",
+					Source = "TopLeftBlue",
+					ControlGroup = 3,
+					Default = 0,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "percentBG",
+					Source = "TopLeftAlpha",
+					ControlGroup = 3,
+					Default = 1,
+				},
+				OffsetTime = InstanceInput {
+					SourceOp = "ViccoCtrl",
+					Source = "OffsetTime",
+					Page = "Controls"
+				},
+				Input30 = InstanceInput {
+					SourceOp = "ViccoCtrl",
+					Source = "OffsetMinutes",
+					Page = "Controls",
+					Default = 0,
+				},
+				Input31 = InstanceInput {
+					SourceOp = "ViccoCtrl",
+					Source = "OffsetSeconds",
+					Page = "Controls",
+					Default = 0,
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "persentBgCombined",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				ViccoCtrl = Custom {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						PointIn1 = Input {
+							Value = { 0.0497, 0.5 },
+							Expression = "Point(NumberIn1/2, 0.5)",
+						},
+						NumberIn1 = Input { Value = 0.0994, },
+						LUTIn1 = Input {
+							SourceOp = "ViccoCtrlLUTIn1",
+							Source = "Value",
+						},
+						LUTIn2 = Input {
+							SourceOp = "ViccoCtrlLUTIn2",
+							Source = "Value",
+						},
+						LUTIn3 = Input {
+							SourceOp = "ViccoCtrlLUTIn3",
+							Source = "Value",
+						},
+						LUTIn4 = Input {
+							SourceOp = "ViccoCtrlLUTIn4",
+							Source = "Value",
+						},
+						NameforNumber1 = Input { Value = "Width", },
+						ShowNumber2 = Input { Value = 0, },
+						ShowNumber3 = Input { Value = 0, },
+						ShowNumber4 = Input { Value = 0, },
+						ShowNumber5 = Input { Value = 0, },
+						ShowNumber6 = Input { Value = 0, },
+						ShowNumber7 = Input { Value = 0, },
+						ShowNumber8 = Input { Value = 0, },
+						PointControls = Input { Value = 1, },
+						NameforPoint1 = Input { Value = "Position", },
+						ShowPoint2 = Input { Value = 0, },
+						ShowPoint3 = Input { Value = 0, },
+						ShowPoint4 = Input { Value = 0, },
+						ShowLUT1 = Input { Value = 0, },
+						ShowLUT2 = Input { Value = 0, },
+						ShowLUT3 = Input { Value = 0, },
+						ShowLUT4 = Input { Value = 0, },
+						FrameRate = Input {
+							Value = 30,
+							Expression = "comp:GetPrefs().Comp.FrameFormat.Rate",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, 49.5 } },
+					UserControls = ordered() {
+						FrameRate = {
+							LINKS_Name = "Frame Rate",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Default = 24,
+							INP_Integer = false,
+							INP_MinScale = 0,
+							INP_MaxScale = 9999,
+							INP_MinAllowed = -1000000,
+							INP_MaxAllowed = 1000000,
+							IC_Steps = 1,
+							ICS_ControlPage = "Controls"
+						},
+						OffsetMinutes = {
+							LINKS_Name = "Offset Minutes",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = true,
+							INP_MinScale = 0,
+							INP_MaxScale = 999,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 999,
+							IC_Steps = 1,
+							ICS_ControlPage = "Controls"
+						}, 
+						OffsetSeconds = {
+							LINKS_Name = "Offset Seconds",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Default = 0,
+							INP_Integer = true,
+							INP_MinScale = 0,
+							INP_MaxScale = 59,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 59,
+							IC_Steps = 1,
+							ICS_ControlPage = "Controls"
+						},
+						PercentShape = {
+							LBLC_NumInputs = 1,
+							LINKS_Name = "Shape",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						},
+						OffsetTime = {
+							LBLC_NumInputs = 2,
+							LINKS_Name = "Offset",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					}
+				},
+				ViccoCtrlLUTIn1 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 0, Blue = 0 },
+				},
+				ViccoCtrlLUTIn2 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 204, Blue = 0 },
+				},
+				ViccoCtrlLUTIn3 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 0, Blue = 204 },
+				},
+				ViccoCtrlLUTIn4 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 204, Blue = 204 },
+				},
+				wrapper = RectangleMask {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input {
+							Value = { 0.0497, 0.5 },
+							Expression = "Point(ViccoCtrl.PointIn1.X, 0.5)",
+						},
+						Width = Input {
+							Value = 0.0994,
+							Expression = "ViccoCtrl.NumberIn1",
+						},
+						Height = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, 115.5 } },
+				},
+				wrapper_1 = RectangleMask {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input {
+							Value = { 0.0497, 0.333240689271818 },
+							Expression = "Point(ViccoCtrl.PointIn1.X, (time / comp.RenderEnd ) / 2)",
+						},
+						Width = Input {
+							Value = 0.0994,
+							Expression = "ViccoCtrl.NumberIn1",
+						},
+						Height = Input {
+							Value = 0.666481378543635,
+							Expression = "time / comp.RenderEnd ",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 605, 115.5 } },
+				},
+				percent_Percent = Background {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "wrapper_1",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 0.11715, },
+						TopLeftGreen = Input { Value = 0.1342468, },
+						TopLeftBlue = Input { Value = 0.142, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 605, 148.5 } },
+					UserControls = ordered() {
+						PercentForeground = {
+								LBLC_NumInputs = 4,
+								LINKS_Name = "Foreground",
+								LBLC_DropDownButton = true,
+								INPID_InputControl = "LabelControl",
+						},
+					},
+				},
+				percentBG = Background {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "wrapper",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, 148.5 } },
+					UserControls = ordered() {
+						PercentBackground = {
+								LBLC_NumInputs = 4,
+								LINKS_Name = "Background",
+								LBLC_DropDownButton = true,
+								INPID_InputControl = "LabelControl",
+						},
+					},
+				},
+				persentBgCombined = Merge {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "bgCombined",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "percent_Percent",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 605, 214.5 } },
+				},
+				bgCombined = Merge {
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "percentBG",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, 214.5 } },
+				}
+			},
+			Colors = { TileColor = { R = 0.623529411764706, G = 0.776470588235294, B = 0.0823529411764706 }, }
+		}
+	},
+	ActiveTool = "ViccoVlog_PercentBar_Master"
+}

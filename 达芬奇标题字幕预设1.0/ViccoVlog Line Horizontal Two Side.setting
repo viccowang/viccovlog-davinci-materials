@@ -1,0 +1,465 @@
+{
+	Tools = ordered() {
+		ViccoVlogLineHorizontalTwoSide = MacroOperator {
+			Inputs = ordered() {
+				Comments = Input { Value = "Titles made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
+				HeadText = InstanceInput {
+					SourceOp = "Head",
+					Source = "HeadText",
+					Page = "Controls",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Head",
+					Source = "StyledText",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Font",
+					ControlGroup = 3,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Style",
+					ControlGroup = 3,
+				},
+				Input13 = InstanceInput {
+					SourceOp = "Head",
+					Source = "LayoutSize",
+					MaxScale = 2,
+					Default = 1,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Center",
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Red1Clone",
+					Name = "Color",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Green1Clone",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Blue1Clone",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Alpha1Clone",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "Head",
+					Source = "CharacterSpacingClone",
+					Name = "Tracking",
+					Default = 1,
+				},
+				PaintStroke = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "PaintStroke",
+					Page = "Controls",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "PaintApplyColor.Red",
+					Name = "Color",
+					ControlGroup = 1,
+					Default = 1,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "PaintApplyColor.Green",
+					Name = "Color",
+					ControlGroup = 1,
+					Default = 0.8156862745098,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "PaintApplyColor.Blue",
+					Name = "Color",
+					ControlGroup = 1,
+					Default = 0,
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "KeyframeStretcher1",
+					Source = "Result",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Transform1 = Transform {
+					Inputs = {
+						FlipHoriz = Input { Value = 1, },
+						FlipVert = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "Instance_Paint1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 440, 148.5 } },
+				},
+				Instance_Paint1 = Paint {
+					SourceOp = "Paint1",
+					Inputs = {
+						EffectMask = Input { },
+						SettingsNest = Input { },
+						Input = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 330, 148.5 } },
+				},
+				PolylineStroke1 = PolylineStroke {
+					Points = {
+					},
+					IsThreaded = true,
+					Brushes = { "CircleBrush" },
+					ApplyModes = { "PaintApplyColor" },
+					Inputs = {
+						BrushControls = Input { Value = 1, },
+						BrushShape = Input { Value = FuID { "CircleBrush" }, },
+						["CircleBrush.Size"] = Input { Value = 0.0048, },
+						["PaintApplyColor.Green"] = Input { Value = 0.8156862745098, },
+						["PaintApplyColor.Blue"] = Input { Value = 0, },
+						StrokeControls = Input { Value = 1, },
+						WriteOnStart = Input {
+							SourceOp = "PolylineStroke1Start",
+							Source = "Value",
+						},
+						WriteOnEnd = Input {
+							SourceOp = "PolylineStroke1End",
+							Source = "Value",
+						},
+						Center = Input {
+							SourceOp = "Path1",
+							Source = "Position",
+						},
+						StrokeAngle = Input {
+							SourceOp = "PolylineStroke1Angle",
+							Source = "Value",
+						},
+						Polyline = Input {
+							Value = Polyline {
+								Points = {
+									{ Linear = true, X = -0.000393700785934925, Y = 0.0840336158871651, RX = -6.05346212971073e-018, RY = -0.0560224097775144 },
+									{ Linear = true, X = -0.000393700785934943, Y = -0.0840336134453781, LX = 6.05346212971073e-018, LY = 0.0560224097775144 }
+								}
+							},
+						},
+					},
+					CtrlWShown = false,
+					UserControls = ordered() {
+						PaintStroke = {
+							LBLC_NumInputs = 3,
+							LINKS_Name = "Paint Stroke",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					},
+				},
+				PolylineStroke1Start = BezierSpline {
+					SplineColor = { Red = 232, Green = 6, Blue = 244 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0.5, RH = { 10.5, 0.5 }, Flags = { Linear = true } },
+						[15] = { 0, LH = { 3.09, 0 }, RH = { 54, 0 } },
+						[132] = { 0, LH = { 93, 2.76984815258343e-016 }, RH = { 145.9, 0 } },
+						[149] = { 0.5, LH = { 135.1, 0.5 } }
+					}
+				},
+				PolylineStroke1End = BezierSpline {
+					SplineColor = { Red = 72, Green = 233, Blue = 54 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0.5, RH = { 10.5, 0.5 }, Flags = { Linear = true } },
+						[15] = { 1, LH = { 3.09, 1 }, RH = { 54, 1 } },
+						[132] = { 1, LH = { 93, 1 }, RH = { 145.9, 1 } },
+						[149] = { 0.5, LH = { 135.1, 0.5 } }
+					}
+				},
+				Path1 = PolyPath {
+					DrawMode = "InsertAndModify",
+					Inputs = {
+						Displacement = Input {
+							SourceOp = "Path1Displacement",
+							Source = "Value",
+						},
+						PolyLine = Input {
+							Value = Polyline {
+								Points = {
+									{ Linear = true, LockY = true, X = 0.000399999999999956, Y = -0.00109999999999999, RX = -0.133466666666667, RY = 0.000366666666666663 },
+									{ Linear = true, LockY = true, X = -0.4, Y = 0, LX = 0.133466666666667, LY = -0.000366666666666663 }
+								}
+							},
+						},
+					},
+				},
+				Path1Displacement = BezierSpline {
+					SplineColor = { Red = 255, Green = 0, Blue = 178 },
+					NameSet = true,
+					KeyFrames = {
+						[30] = { 0, RH = { 50.9, 0 }, Flags = { Linear = true, LockedY = true } },
+						[55] = { 1, LH = { 34.06, 1 }, RH = { 66.6666666666667, 1 }, Flags = { LockedY = true } },
+						[90] = { 1, LH = { 78.3333333333333, 1 }, RH = { 111.95, 1 } },
+						[117] = { 0, LH = { 94.1199999999999, 0 } }
+					}
+				},
+				PolylineStroke1Angle = BezierSpline {
+					SplineColor = { Red = 14, Green = 221, Blue = 144 },
+					NameSet = true,
+					KeyFrames = {
+						[20] = { 0, RH = { 27.94, 0 }, Flags = { Linear = true } },
+						[30] = { 26, LH = { 22.1, 26 }, RH = { 59, 26 } },
+						[117] = { 26, LH = { 88, 26 }, RH = { 124.9, 26 } },
+						[127] = { 0, LH = { 119.06, 0 } }
+					}
+				},
+				Background1 = Background {
+					ExtentSet = true,
+					Inputs = {
+						GlobalOut = Input { Value = 20000, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, 148.5 } },
+				},
+				LeftMask = PolylineMask {
+					DrawMode = "InsertAndModify",
+					DrawMode2 = "InsertAndModify",
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "RightMask",
+							Source = "Mask",
+						},
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						Invert = Input { Value = 1, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input {
+							SourceOp = "Path1",
+							Source = "Position",
+						},
+						Polyline = Input {
+							Value = Polyline {
+								Closed = true,
+								Points = {
+									{ Linear = true, X = -0.0169167657194375, Y = 0.0811069849169739, LX = 0.263468438715892, LY = 0.000140865512449698, RX = 0.0151496784386963, RY = -0.055036760265906 },
+									{ Linear = true, X = 0.0285322695966514, Y = -0.0840032958807442, LX = -0.0151496784386963, LY = 0.055036760265906, RX = 0.263402634615119, RY = -1.71806062487327e-005 },
+									{ Linear = true, X = 0.818740173442008, Y = -0.0840548376994904, LX = -0.263402634615119, LY = 1.71806062487327e-005, RX = -0.0150838743379232, RY = 0.0551948063846045 },
+									{ Linear = true, X = 0.773488550428238, Y = 0.081529581454323, LX = 0.0150838743379232, LY = -0.0551948063846045, RX = -0.263468438715892, RY = -0.000140865512449698 }
+								}
+							},
+						},
+						Polyline2 = Input {
+							Value = Polyline {
+							},
+							Disabled = true,
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 550, 115.5 } },
+				},
+				RightMask = PolylineMask {
+					DrawMode = "InsertAndModify",
+					DrawMode2 = "InsertAndModify",
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input {
+							SourceOp = "Path2",
+							Source = "Position",
+						},
+						Polyline = Input {
+							Value = Polyline {
+								Closed = true,
+								Points = {
+									{ Linear = true, X = -0.0274155302448598, Y = 0.0811069849169739, LX = 0.263468438715892, LY = 0.000140865512449698, RX = 0.0151496784386963, RY = -0.055036760265906 },
+									{ Linear = true, X = 0.0180335050712291, Y = -0.0840032958807442, LX = -0.0151496784386963, LY = 0.055036760265906, RX = 0.263402634615119, RY = -1.71806062487327e-005 },
+									{ Linear = true, X = 0.808241408916585, Y = -0.0840548376994904, LX = -0.263402634615119, LY = 1.71806062487327e-005, RX = -0.0150838743379232, RY = 0.0551948063846045 },
+									{ Linear = true, X = 0.762989785902816, Y = 0.081529581454323, LX = 0.0150838743379232, LY = -0.0551948063846045, RX = -0.263468438715892, RY = -0.000140865512449698 }
+								}
+							},
+						},
+						Polyline2 = Input {
+							Value = Polyline {
+							},
+							Disabled = true,
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 550, 82.5 } },
+				},
+				Path2 = PolyPath {
+					DrawMode = "InsertAndModify",
+					CtrlWZoom = false,
+					Inputs = {
+						Displacement = Input {
+							SourceOp = "Path2Displacement",
+							Source = "Value",
+						},
+						PolyLine = Input {
+							Value = Polyline {
+								Points = {
+									{ Linear = true, LockY = true, X = -0.00147420618463129, Y = 0.000123758523541073, RX = 0.133815887156644, RY = 0 },
+									{ Linear = true, LockY = true, X = 0.399973455285302, Y = 0.000123758523541073, LX = -0.133815887156644, LY = 0 }
+								}
+							},
+						},
+					},
+				},
+				Path2Displacement = BezierSpline {
+					SplineColor = { Red = 255, Green = 0, Blue = 255 },
+					NameSet = true,
+					KeyFrames = {
+						[30] = { 0, RH = { 50.9, 0 }, Flags = { Linear = true, LockedY = true } },
+						[55] = { 1, LH = { 34.04, 1 }, RH = { 66.6666666666667, 1 }, Flags = { LockedY = true } },
+						[90] = { 1, LH = { 78.3333333333333, 1 }, RH = { 111.94, 1 } },
+						[117] = { 0, LH = { 94.1199999999999, 0 } }
+					}
+				},
+				MatteControl1 = MatteControl {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						["Solid.MaskNest"] = Input { Value = 1, },
+						["Garbage.Matte"] = Input {
+							SourceOp = "LeftMask",
+							Source = "Mask",
+						},
+						["Garbage.MaskNest"] = Input { Value = 1, },
+						Background = Input {
+							SourceOp = "Head",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 605, 148.5 } },
+				},
+				Paint1 = Paint {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Paint = Input {
+							SourceOp = "PolylineStroke1",
+							Source = "Out",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 330, 214.5 } },
+				},
+				Merge2 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Paint1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Transform1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 440, 214.5 } },
+				},
+				Merge1 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "MatteControl1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge2",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, 214.5 } },
+				},
+				Head = TextPlus {
+					ExtentSet = true,
+					NameSet = true,
+					Inputs = {
+						GlobalOut = Input { Value = 20000, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						StyledText = Input { Value = "VICCO VLOG TITLES", },
+						Font = Input { Value = "Calibri", },
+						Style = Input { Value = "Bold", },
+						Size = Input {
+							SourceOp = "HeadSize",
+							Source = "Value",
+						},
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 715, 148.5 } },
+					CtrlWShown = false,
+					UserControls = ordered() {
+						HeadText = {
+							LBLC_NumInputs = 10,
+							LINKS_Name = "Head Text",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					},
+				},
+				HeadSize = BezierSpline {
+					SplineColor = { Red = 225, Green = 0, Blue = 225 },
+					NameSet = true,
+					KeyFrames = {
+						[30] = { 0.06, RH = { 48.825, 0.0600793333333332 }, Flags = { Linear = true } },
+						[55] = { 0.08, LH = { 33.85, 0.079960333333333 }, RH = { 66.6666666666666, 0.08 } },
+						[90] = { 0.08, LH = { 78.3333430642521, 0.0799716087489701 }, RH = { 113.472, 0.0800571199999998 } },
+						[117] = { 0.06, LH = { 93.6000000000001, 0.06 } }
+					}
+				},
+				KeyframeStretcher1 = KeyStretcher {
+					CtrlWZoom = false,
+					Inputs = {
+						Keyframes = Input {
+							SourceOp = "Merge1",
+							Source = "Output",
+						},
+						SourceEnd = Input { Value = 150, },
+						StretchStart = Input { Value = 55, },
+						StretchEnd = Input { Value = 90, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 825, 214.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "ViccoVlogLineHorizontalTwoSide"
+}
