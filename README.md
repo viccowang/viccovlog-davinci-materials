@@ -40,3 +40,6 @@
 * [Vicco] 达芬奇DaVinci自制免费转场1.0 | 预设下载 | 使用办法分享 [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87%E8%BD%AC%E5%9C%BA%E9%A2%84%E8%AE%BE1.0)
 * [Vicco] 达芬奇DaVinci三十秒制作ZoomIn缩放转场 | 导入和制作转场预设 [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E7%94%A8%E8%BE%BE%E8%8A%AC%E5%A5%8730%E7%A7%92%E5%88%B6%E4%BD%9CZoomIn%E8%BD%AC%E5%9C%BA)
 * [Vicco] 用DaVinci达芬奇制作年轻人第一只片头动画 | Fusion反转颜色与形状动效应用教学 [素材下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E7%94%A8%E8%BE%BE%E8%8A%AC%E5%A5%87%E5%88%B6%E4%BD%9C%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%89%87%E5%A4%B4)
+
+---
+####  ~因为有你！感谢支持~
