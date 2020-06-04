@@ -1,0 +1,105 @@
+{
+	Tools = ordered() {
+		Transform1 = Transform {
+			Inputs = {
+				MotionBlur = Input { Value = 1, },
+				Quality = Input { Value = 7, },
+				ShutterAngle = Input { Value = 260.8, },
+				CenterBias = Input { Value = -0.64, },
+				Size = Input {
+					SourceOp = "Transform1Size",
+					Source = "Value",
+				},
+				Edges = Input { Value = 3, },
+				Input = Input {
+					SourceOp = "MediaIn2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -115.33, -96.4849 } },
+		},
+		Transform1Size = BezierSpline {
+			SplineColor = { Red = 225, Green = 0, Blue = 225 },
+			NameSet = true,
+			KeyFrames = {
+				[12] = { 0.5, RH = { 12, 0.699999999999991 } },
+				[23] = { 1, LH = { 12, 0.998999999999999 } }
+			}
+		},
+		MediaIn2 = MediaIn {
+			ExtentSet = true,
+			CustomData = { MediaProps = { MEDIA_LAYERS_IN_OUT_LIST = { { 0, 24 }, { 12, 24 } }, MEDIA_NAME = "Fusion Clip 2", MEDIA_HEIGHT = 1080, MEDIA_NUM_LAYERS = 2, MEDIA_START_FRAME = 0, MEDIA_SRC_FRAME_RATE = 25, MEDIA_MARK_OUT = 23, MEDIA_WIDTH = 1920, MEDIA_NUM_FRAMES = 24, MEDIA_MARK_IN = 0, MEDIA_PAR = 1 } },
+			Inputs = {
+				GlobalIn = Input { Value = 12, },
+				GlobalOut = Input { Value = 23, },
+				Layer = Input { Value = "1", },
+				ClipTimeStart = Input { Value = 12, },
+				ClipTimeEnd = Input { Value = 23, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { -115.33, -129.485 } },
+		},
+		Merge1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Transform2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Transform1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { -115.33, 2.51516 } },
+		},
+		Transform2 = Transform {
+			Inputs = {
+				MotionBlur = Input { Value = 1, },
+				Quality = Input { Value = 7, },
+				ShutterAngle = Input { Value = 263.6, },
+				CenterBias = Input { Value = -0.62, },
+				Size = Input {
+					SourceOp = "Transform2Size",
+					Source = "Value",
+				},
+				Input = Input {
+					SourceOp = "MediaIn1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -280.33, 2.51516 } },
+		},
+		Transform2Size = BezierSpline {
+			SplineColor = { Red = 225, Green = 0, Blue = 225 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 3.66666666666667, 1 } },
+				[11] = { 2, LH = { 11, 1.02200000000001 } }
+			}
+		},
+		MediaIn1 = MediaIn {
+			ExtentSet = true,
+			CustomData = { MediaProps = { MEDIA_LAYERS_IN_OUT_LIST = { { 0, 24 }, { 12, 24 } }, MEDIA_NAME = "Fusion Clip 2", MEDIA_HEIGHT = 1080, MEDIA_NUM_LAYERS = 2, MEDIA_START_FRAME = 0, MEDIA_SRC_FRAME_RATE = 25, MEDIA_MARK_OUT = 23, MEDIA_WIDTH = 1920, MEDIA_NUM_FRAMES = 24, MEDIA_MARK_IN = 0, MEDIA_PAR = 1 } },
+			Inputs = {
+				GlobalOut = Input { Value = 23, },
+				Layer = Input { Value = "0", },
+				ClipTimeEnd = Input { Value = 23, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { -445.33, 2.51516 } },
+		},
+		MediaOut1 = MediaOut {
+			CtrlWZoom = false,
+			Inputs = {
+				Index = Input { Value = "0", },
+				Input = Input {
+					SourceOp = "Merge1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 214.667, 2.51516 } },
+		}
+	},
+	ActiveTool = "MediaOut1"
+}
