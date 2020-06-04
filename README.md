@@ -20,3 +20,8 @@
 * [Vicco] 用达芬奇DaVinci制作路径动画 | 显示和隐藏路径两种方式 [素材下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E7%94%A8%E8%BE%BE%E8%8A%AC%E5%A5%87%E5%88%B6%E4%BD%9C%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB)
 * [Vicco] 达芬奇DaVinci自制免费转场预设包2.0 | 官方转场一样的使用体验 [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87%E8%BD%AC%E5%9C%BA%E9%A2%84%E8%AE%BE2.0)
 * [Vicco]用达芬奇DaVinci制作绿屏抠像 | 平面追踪 | 双硬菜配搭食用 [素材下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E7%94%A8%E8%BE%BE%E8%8A%AC%E5%A5%87%E5%88%B6%E4%BD%9C%E7%BB%BF%E5%B1%8F%E6%8A%A0%E5%83%8F)
+* [Vicco] DaVinci达芬奇仿Ins的霓虹炫酷特效 | 片尾福利不要错过 [插件下载]()
+* [Vicco] 用达芬奇DaVinci制作文字书写动画 | 一笔一划的Fusion特效 [素材下载]()
+* [Vicco] 如何制作属于自己的达芬奇转场预设包 | 多帧率版本制作步骤 | 转场教学 [素材下载]()
+* [Vicco] 达芬奇DaVinci的Fusion文字标题遮罩用法和技巧 | 附赠封面标题预设 [预设下载]()
+* [Vicco] 达芬奇DaVinci自制免费转场1.0 | 预设下载 | 使用办法分享 [预设下载]()

@@ -1,0 +1,58 @@
+{
+	Tools = ordered() {
+		PaintTraceHelper11 = MacroOperator {
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "TimeSpeed1",
+					Source = "Input",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "TimeSpeed1",
+					Source = "Delay",
+					Name = "Delay Time",
+					Default = 1,
+				},
+				MainInput2 = InstanceInput {
+					SourceOp = "Merge2",
+					Source = "Background",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Merge2",
+					Source = "Blend",
+					Name = "Trace Helper Blend",
+					Default = 0.2,
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				TimeSpeed1 = TimeSpeed {
+					CtrlWShown = false,
+					Inputs = {
+						Delay = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, -82.5 } },
+				},
+				Merge2 = Merge {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					Inputs = {
+						Blend = Input { Value = 0.2, },
+						Foreground = Input {
+							SourceOp = "TimeSpeed1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, -82.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "PaintTraceHelper11"
+}

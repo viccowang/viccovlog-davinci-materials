@@ -1,0 +1,432 @@
+{
+	Tools = ordered() {
+		Rectangle2 = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.5, 0.366086956521739 }, },
+				Height = Input { Value = 0.131304347826087, },
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, -82.5 } },
+		},
+		Text1 = TextPlus {
+			Inputs = {
+				EffectMask = Input {
+					SourceOp = "Rectangle2",
+					Source = "Mask",
+				},
+				GlobalOut = Input { Value = 119, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Center = Input {
+					SourceOp = "Path2",
+					Source = "Position",
+				},
+				CharacterSpacing = Input { Value = 1.12, },
+				StyledText = Input { Value = "INNOVATION", },
+				Font = Input { Value = "Utsaah", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.0702, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, },
+				ManualFontKerningPlacement = Input {
+					Value = StyledText {
+						Array = {
+						},
+						Value = ""
+					},
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, -49.5 } },
+		},
+		Path2 = PolyPath {
+			DrawMode = "InsertAndModify",
+			CtrlWZoom = false,
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "Path2Displacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = 0, Y = -0.033241, RX = 0, RY = -0.0195217050354654 },
+							{ Linear = true, LockY = true, X = 0, Y = -0.0918061151063961, LX = 0, LY = 0.0195217050354654, RX = 0, RY = -1.3137639124731e-015 },
+							{ Linear = true, LockY = true, X = 0, Y = -0.0918061151064, LX = 0, LY = 1.3137639124731e-015, RX = 0, RY = -0.00753623188405665 },
+							{ Linear = true, LockY = true, X = 0, Y = -0.11441481075857, LX = 0, LY = 0.00753623188405665 }
+						}
+					},
+				},
+			},
+		},
+		Path2Displacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[5] = { 0, RH = { 5, 0.0580000000000002 }, Flags = { LockedY = true } },
+				[18] = { 0.721477956487535, LH = { 13.6670922329273, 0.721477956487535 }, RH = { 19.3333333333333, 0.721477956487535 }, Flags = { LockedY = true } },
+				[22] = { 0.721477956487535, LH = { 20.6666666666667, 0.721477956487535 }, RH = { 26.332899928093, 0.721477956487535 }, Flags = { Linear = true, LockedY = true } },
+				[35] = { 1, LH = { 22.0866666666667, 0.998555555555555 }, Flags = { LockedY = true } }
+			}
+		},
+		Merge3 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Text1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Text1_1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, -49.5 } },
+		},
+		Rectangle1 = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.5, 0.515652173913043 }, },
+				Height = Input { Value = 0.169565217391304, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, -148.5 } },
+		},
+		Text1_1 = TextPlus {
+			Inputs = {
+				EffectMask = Input {
+					SourceOp = "Rectangle1",
+					Source = "Mask",
+				},
+				GlobalOut = Input { Value = 119, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Center = Input {
+					SourceOp = "Path1",
+					Source = "Position",
+				},
+				StyledText = Input { Value = "EASY TO USE", },
+				Font = Input { Value = "Tahoma", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.082, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, },
+				ManualFontKerningPlacement = Input {
+					Value = StyledText {
+						Array = {
+						},
+						Value = ""
+					},
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, -115.5 } },
+		},
+		Path1 = PolyPath {
+			DrawMode = "InsertAndModify",
+			CtrlWZoom = false,
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "Path1Displacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = 0, Y = -0.106976, RX = 0, RY = 0.0271014825559336 },
+							{ Linear = true, LockY = true, X = 0, Y = -0.0256715523321992, LX = 0, LY = -0.0271014825559336, RX = 0, RY = -2.59052039079203e-016 },
+							{ Linear = true, LockY = true, X = 0, Y = -0.0256715523322, LX = 0, LY = 2.59052039079203e-016, RX = 0, RY = 0.00637681159420315 },
+							{ Linear = true, LockY = true, X = 0, Y = -0.00654111754959052, LX = 0, LY = -0.00637681159420315 }
+						}
+					},
+				},
+			},
+		},
+		Path1Displacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[5] = { 0, RH = { 5, 0.0587198137302233 }, Flags = { LockedY = true } },
+				[18] = { 0.809523998875041, LH = { 13.667100071907, 0.809523998875041 }, RH = { 19.3333333333333, 0.809523998875041 }, Flags = { LockedY = true } },
+				[22] = { 0.809523998875041, LH = { 20.6666666666667, 0.809523998875041 }, RH = { 26.332899928093, 0.809523998875041 }, Flags = { Linear = true, LockedY = true } },
+				[35] = { 1, LH = { 22, 0.998555555555555 }, Flags = { LockedY = true } }
+			}
+		},
+		Merge2 = Merge {
+			Inputs = {
+				EffectMask = Input {
+					SourceOp = "Rectangle3",
+					Source = "Mask",
+				},
+				Background = Input {
+					SourceOp = "Merge1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Merge3",
+					Source = "Output",
+				},
+				Center = Input { Value = { 0.5, 0.568627450980392 }, },
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 16.5 } },
+		},
+		Paint1 = Paint {
+			Inputs = {
+				Input = Input {
+					SourceOp = "Background1",
+					Source = "Output",
+				},
+				Paint = Input {
+					SourceOp = "PolylineStroke1",
+					Source = "Out",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -385, 16.5 } },
+		},
+		PolylineStroke1 = PolylineStroke {
+			Points = {
+			},
+			IsThreaded = false,
+			Brushes = { "CircleBrush" },
+			ApplyModes = { "PaintApplyColor" },
+			CtrlWZoom = false,
+			Inputs = {
+				BrushControls = Input { Value = 1, },
+				BrushShape = Input { Value = FuID { "CircleBrush" }, },
+				["CircleBrush.Size"] = Input { Value = 0.0075, },
+				StrokeControls = Input { Value = 1, },
+				WriteOnStart = Input {
+					SourceOp = "PolylineStroke1Start",
+					Source = "Value",
+				},
+				WriteOnEnd = Input {
+					SourceOp = "PolylineStroke1End",
+					Source = "Value",
+				},
+				Polyline = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, X = 0.400835663080215, Y = -0.000494559819344431, RX = -0.267038071537416, RY = 0 },
+							{ Linear = true, X = -0.4002785384655, Y = -0.000494559819344431, LX = 0.267038071537416, LY = 0 }
+						}
+					},
+				},
+			},
+		},
+		PolylineStroke1Start = BezierSpline {
+			SplineColor = { Red = 232, Green = 6, Blue = 244 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, Flags = { Linear = true } }
+			}
+		},
+		PolylineStroke1End = BezierSpline {
+			SplineColor = { Red = 72, Green = 233, Blue = 54 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 9.96, 0.0024 } },
+				[18] = { 1, LH = { 3.6, 1 } }
+			}
+		},
+		downline = Transform {
+			NameSet = true,
+			SourceOp = "upline",
+			Inputs = {
+				EffectMask = Input { },
+				SettingsNest = Input { },
+				TransformNest = Input { },
+				Center = Input {
+					SourceOp = "Path4",
+					Source = "Position",
+				},
+				FlipHoriz = Input { Value = 1, },
+				ReferenceSize = Input { },
+				Input = Input {
+					SourceOp = "Instance_Paint1",
+					Source = "Output",
+				},
+				CommentsNest = Input { },
+				FrameRenderScriptNest = Input { },
+				StartRenderScripts = Input { },
+				EndRenderScripts = Input { },
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, 49.5 } },
+		},
+		Path4 = PolyPath {
+			DrawMode = "InsertAndModify",
+			CtrlWZoom = false,
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "Path4Displacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = 0, Y = -0.09, RX = 0, RY = -0.0127536231884058 },
+							{ Linear = true, LockY = true, X = 0, Y = -0.128260869565217, LX = 0, LY = 0.0127536231884058, RX = 0, RY = 0 },
+							{ Linear = true, LockY = true, X = 0, Y = -0.128260865807533, LX = 0, LY = 0, RX = 0, RY = 0.0427536219358444 },
+							{ Linear = true, LockY = true, X = 0, Y = 0, LX = 0, LY = -0.0427536219358444 }
+						}
+					},
+				},
+			},
+		},
+		Path4Displacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[22] = { 0, RH = { 26.3333333333333, 0 }, Flags = { LockedY = true } },
+				[35] = { 0.229765018239645, LH = { 22.0288888888889, 0.229101252631397 }, RH = { 53.3333333333333, 0.229765018239645 }, Flags = { LockedY = true } },
+				[90] = { 0.229765018239645, LH = { 71.6666666666667, 0.229765018239645 }, RH = { 94.6661999225616, 0.229765018239645 }, Flags = { Linear = true, LockedY = true } },
+				[104] = { 1, LH = { 90, 0.997999999999999 }, Flags = { LockedY = true } }
+			}
+		},
+		uplineXSize = BezierSpline {
+			SplineColor = { Red = 251, Green = 94, Blue = 44 },
+			NameSet = true,
+			KeyFrames = {
+				[104] = { 0.53, RH = { 108.666666666667, 0.53 } },
+				[118] = { 0, LH = { 104.2, 0.004 } }
+			}
+		},
+		Instance_Paint1 = Paint {
+			SourceOp = "Paint1",
+			Inputs = {
+				EffectMask = Input { },
+				SettingsNest = Input { },
+				Input = Input {
+					SourceOp = "Background1",
+					Source = "Output",
+				},
+				CommentsNest = Input { },
+				FrameRenderScriptNest = Input { },
+				StartRenderScripts = Input { },
+				EndRenderScripts = Input { },
+			},
+			ViewInfo = OperatorInfo { Pos = { -220, 49.5 } },
+		},
+		Background1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 119, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftAlpha = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { -550, 49.5 } },
+		},
+		Rectangle3 = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.5, 0.503478260869565 }, },
+				Width = Input { Value = 0.439393939393939, },
+				Height = Input {
+					SourceOp = "Rectangle3Height",
+					Source = "Value",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 82.5 } },
+		},
+		Rectangle3Height = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[90] = { 0.249565217391304, RH = { 94.6666666666667, 0.249565217391304 } },
+				[104] = { 0, LH = { 90.2, 0 } }
+			}
+		},
+		Merge1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "upline",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "downline",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, 148.5 } },
+		},
+		upline = Transform {
+			NameSet = true,
+			Inputs = {
+				Center = Input {
+					SourceOp = "Path3",
+					Source = "Position",
+				},
+				UseSizeAndAspect = Input { Value = 0, },
+				Size = Input { Value = 0.541089931573802, },
+				XSize = Input {
+					SourceOp = "uplineXSize",
+					Source = "Value",
+				},
+				YSize = Input { Value = 0.59, },
+				Input = Input {
+					SourceOp = "Paint1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -385, 148.5 } },
+		},
+		Path3 = PolyPath {
+			DrawMode = "InsertAndModify",
+			CtrlWZoom = false,
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "Path3Displacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = 0, Y = 0.11, RX = 0, RY = 0.00869565217391303 },
+							{ Linear = true, LockY = true, X = 0, Y = 0.136086956521739, LX = 0, LY = -0.00869565217391303, RX = 0, RY = 0 },
+							{ Linear = true, LockY = true, X = 0, Y = 0.136086955666542, LX = 0, LY = 0, RX = 0, RY = -0.045362318555514 },
+							{ Linear = true, LockY = true, X = 0, Y = 0, LX = 0, LY = 0.045362318555514 }
+						}
+					},
+				},
+			},
+		},
+		Path3Displacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[22] = { 0, RH = { 26.3333333333333, 0 }, Flags = { LockedY = true } },
+				[35] = { 0.160857909695442, LH = { 21.9711111111111, 0.160393209067433 }, RH = { 53.3333333333333, 0.160857909695442 }, Flags = { LockedY = true } },
+				[90] = { 0.160857909695442, LH = { 71.6666666666667, 0.160857909695442 }, RH = { 94.6661999225616, 0.160857909695442 }, Flags = { Linear = true, LockedY = true } },
+				[104] = { 1, LH = { 90, 0.997999999999999 }, Flags = { LockedY = true } }
+			}
+		},
+		MediaOut1 = MediaOut {
+			CtrlWZoom = false,
+			Inputs = {
+				Index = Input { Value = "0", },
+				Input = Input {
+					SourceOp = "Merge2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 148.5 } },
+		}
+	},
+	ActiveTool = "MediaOut1"
+}
