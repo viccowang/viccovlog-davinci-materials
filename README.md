@@ -1,7 +1,7 @@
 # ViccoVlog 官方视频素材更新
 ---
 
-![viccovlog davinci](https://github.com/viccowang/viccovlog-davinci-materials/blob/master/assets/DaVinci.png){:height="50%" width="50%"}
+<img src="https://github.com/viccowang/viccovlog-davinci-materials/blob/master/assets/DaVinci.png width="50%" />
 
 ### 前述
 ```
