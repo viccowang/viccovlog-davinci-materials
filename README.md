@@ -42,4 +42,4 @@
 * [Vicco] 用DaVinci达芬奇制作年轻人第一只片头动画 | Fusion反转颜色与形状动效应用教学 [素材下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E7%94%A8%E8%BE%BE%E8%8A%AC%E5%A5%87%E5%88%B6%E4%BD%9C%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%89%87%E5%A4%B4)
 
 ---
-####  ~因为有你！感谢支持~
+###  因为有你！感谢支持
