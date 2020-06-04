@@ -1,6 +1,8 @@
 # ViccoVlog 官方视频素材更新
 ---
 
+![viccovlog davinci](https://github.com/viccowang/viccovlog-davinci-materials/blob/master/assets/DaVinci.png)
+
 ### 前述
 ```
 鉴于百度受人蛊惑无耻封杀，原本没有任何问题的文件也会被屏蔽，所以为了日后视频数量积攒过多，不至于再遇到类似的情况，故直接移居这里
