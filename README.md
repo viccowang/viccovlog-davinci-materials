@@ -17,7 +17,7 @@
 按照视频发布日期对应从前往后
 ```
 
-* [Vicco] 达芬奇Glitch转场预设 | 618白嫖 | 剁手回血下载 [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87Glitch%E8%BD%AC%E5%9C%BA%E9%A2%84%E8%AE%BE)
+* [Vicco] 达芬奇Glitch转场预设 | 618白嫖 | 剁手回血下载 [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87Glitch%E8%BD%AC%E5%9C%BA%E9%A2%84%E8%AE%BE) [声效下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87Glitch%E5%A3%B0%E6%95%88%E9%A2%84%E8%AE%BE)
 
 ---
 * [Vicco] 自制达芬奇黑边遮幅小工具使用指南 | 达芬奇3分钟 [插件下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87%E9%BB%91%E8%BE%B9%E5%B0%8F%E5%B7%A5%E5%85%B7)
