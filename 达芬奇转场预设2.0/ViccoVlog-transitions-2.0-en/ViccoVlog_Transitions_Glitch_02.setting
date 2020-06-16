@@ -1,0 +1,166 @@
+{
+	Tools = ordered() {
+		ViccoVlog_Transitions_Glitch_02 = MacroOperator {
+			Inputs = ordered() {
+				Comments = Input { Value = "Transition made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
+				Input1 = InstanceInput {
+				MainInput1 = InstanceInput {
+					SourceOp = "Dissolve1",
+					Source = "Background",
+				},
+				MainInput2 = InstanceInput {
+					SourceOp = "Dissolve1",
+					Source = "Foreground",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Dissolve1 = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					Inputs = {
+						["DFTWipe.WipeStyle"] = Input { Value = 1, },
+						["DFTWipe.Alpha"] = Input { Value = 0.299, },
+						["DFTWipe.InvertWipe"] = Input { Value = 1, },
+						["DFTWipe.Border"] = Input { Value = 1, },
+						["DFTWipe.BorderWidth"] = Input { Value = 0.52, },
+						Mix = Input {
+							Value = 0,
+							Expression = "iif(time<comp.RenderEnd/2,0,1)",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 275, 148.5 } },
+				},
+				TV1 = TV {
+					Inputs = {
+						Horizontal = Input { Value = 0.232, },
+						Vertical = Input { Value = 0.145, },
+						Amplitude = Input { Value = 0.16, },
+						BarStrength = Input { Value = 1, },
+						BarSize = Input { Value = 1, },
+						Baroffset = Input {
+							SourceOp = "Calculation1",
+							Source = "Result",
+						},
+						Input = Input {
+							SourceOp = "Dissolve1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 440, 148.5 } },
+				},
+				Calculation1 = Calculation {
+					CtrlWZoom = false,
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonTV1FirstOperand",
+							Source = "Value",
+						},
+						FirstOperandTimeScale = Input { Expression = "24/(comp.RenderEnd+1)", },
+					},
+				},
+				CalculationonTV1FirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[-79] = { 0, RH = { -45, 0.333333333333333 }, Flags = { Linear = true } },
+						[23] = { 1, LH = { -11, 0.666666666666667 }, Flags = { Linear = true } }
+					}
+				},
+				["摄影机晃动1"] = ofx.com.blackmagicdesign.resolvefx.camerashake {
+					Inputs = {
+						Source = Input {
+							SourceOp = "TV1",
+							Source = "Output",
+						},
+						MotionScale = Input { Value = 1.213, },
+						SpeedScale = Input { Value = 1.354, },
+						MotionBlurAmt = Input { Value = 0, },
+						ShakeLevelsGroup = Input { Value = 1, },
+						XAmpl = Input { Value = 0.100000001490116, },
+						YAmpl = Input { Value = 0.300000011920929, },
+						RAmpl = Input { Value = 0.100000001490116, },
+						XYFreq = Input { Value = 0.5, },
+						ZAmpl = Input { Value = 0, },
+						ZFreq = Input { Value = 0, },
+						zoomType = Input { Value = FuID { "ZOOM_OUTWARD" }, },
+						ShakeQualityGroup = Input { Value = 1, },
+						motionType = Input { Value = FuID { "MOTION_TYPE_SQUARE_WAVE" }, },
+						XYPhase = Input { Value = 0.5866, },
+						ShakeRand = Input { Value = 0.100000001490116, },
+						RandSpeed = Input { Value = 0.850000023841858, },
+						ShakePsLen = Input { Value = 0.5, },
+						ShakePsInt = Input { Value = 5, },
+						PauseRand = Input { Value = 0.200000002980232, },
+						RandSeed = Input { Value = 1, },
+						BlankingHandlingGroup = Input { Value = 1, },
+						BorderType = Input { Value = FuID { "BORDER_TYPE_CONSTANT" }, },
+						ZoomCrop = Input { Value = 0.0500000007450581, },
+						blendGroup = Input { Value = 1, },
+						blend = Input { Value = 0, },
+						ignoreContentShape = Input { Value = 0, },
+						legacyIsProcessRGBOnly = Input { Value = 0, },
+						resolvefxVersion = Input { Value = "1.2", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 605, 148.5 } },
+				},
+				Transform1 = Transform {
+					Inputs = {
+						ProcessRed = Input { Value = 0, },
+						Center = Input { Value = { 0.511135857461025, 0.5 }, },
+						Edges = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "摄影机晃动1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 715, 148.5 } },
+				},
+				Transform1_1 = Transform {
+					Inputs = {
+						ProcessGreen = Input { Value = 0, },
+						Center = Input { Value = { 0.501113585746102, 0.5 }, },
+						Edges = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "Transform1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 825, 148.5 } },
+				},
+				Merge1 = Merge {
+					CtrlWZoom = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Transform1_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 935, 148.5 } },
+				},
+				Background1 = Background {
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 935, 247.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "ViccoVlog_Transitions_Glitch_02"
+}
