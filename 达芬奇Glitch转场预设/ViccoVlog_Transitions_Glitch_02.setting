@@ -3,7 +3,6 @@
 		ViccoVlog_Transitions_Glitch_02 = MacroOperator {
 			Inputs = ordered() {
 				Comments = Input { Value = "Transition made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
-				Input1 = InstanceInput {
 				MainInput1 = InstanceInput {
 					SourceOp = "Dissolve1",
 					Source = "Background",
