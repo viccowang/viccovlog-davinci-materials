@@ -1,0 +1,367 @@
+{
+	Tools = ordered() {
+		ViccoVlog_PTMC_Title = MacroOperator {
+			Inputs = ordered() {
+				TitleStyle = InstanceInput {
+          SourceOp = "Title",
+          Source = "TitleStyle"
+        },
+				Input1 = InstanceInput {
+					SourceOp = "Title",
+					Source = "StyledText",
+					Name = "标题",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Font",
+					ControlGroup = 2,
+					Name = "字体",
+				},
+				Input103 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Center",
+					Name = "位置",
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Style",
+					ControlGroup = 2,
+					Name = "字型",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Size",
+					Default = 0.08,
+					Name = "大小",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Title",
+					Source = "CharacterSpacingClone",
+					Name = "Tracking",
+					Default = 1,
+					Name = "字符间距",
+				},
+				Input17 = InstanceInput {
+					SourceOp = "rotate",
+					Source = "Angle",
+					Default = 0,
+					Name = "角度",
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Red1",
+					Name = "Color",
+					ControlGroup = 5,
+					Default = 0.181,
+					Name = "颜色",
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Green1",
+					ControlGroup = 5,
+					Default = 0.181,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Blue1",
+					ControlGroup = 5,
+					Default = 0.181,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Title",
+					Source = "Alpha1",
+					ControlGroup = 5,
+					Default = 1,
+				},
+
+				TitleBGStyle = InstanceInput {
+          SourceOp = "BG",
+          Source = "TitleBGStyle"
+        },
+				Input10 = InstanceInput {
+					SourceOp = "BG",
+					Source = "ExtendHorizontal1",
+					Default = 0.239,
+					Name = "宽度",
+				},
+				Input11 = InstanceInput {
+					SourceOp = "BG",
+					Source = "ExtendVertical1",
+					Default = 0.07,
+					Name = "高度",
+				},
+				Input12 = InstanceInput {
+					SourceOp = "BG",
+					Source = "Round1",
+					Default = 0,
+					Name = "圆角",
+				},
+				Input13 = InstanceInput {
+					SourceOp = "BG",
+					Source = "Red1",
+					Name = "颜色",
+					ControlGroup = 9,
+					Default = 1,
+				},
+				Input14 = InstanceInput {
+					SourceOp = "BG",
+					Source = "Green1",
+					ControlGroup = 9,
+					Default = 1,
+				},
+				Input15 = InstanceInput {
+					SourceOp = "BG",
+					Source = "Blue1",
+					ControlGroup = 9,
+					Default = 1,
+				},
+				Input16 = InstanceInput {
+					SourceOp = "BG",
+					Source = "Alpha1",
+					ControlGroup = 9,
+					Default = 1,
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "KS",
+					Source = "Result",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Title = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Opacity4 = Input {
+							SourceOp = "TitleOpacity4",
+							Source = "Value",
+						},
+						Level4 = Input { Value = 1, },
+						ExtendHorizontal4 = Input { Value = 0.29, },
+						ExtendVertical4 = Input { Value = 0.06, },
+						Red4 = Input { Value = 1, },
+						Green4 = Input { Value = 1, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						LayoutSize = Input {
+							SourceOp = "TitleSize",
+							Source = "Value",
+						},
+						TransformShear = Input { Value = 1, },
+						Opacity1 = Input {
+							SourceOp = "TitleOpacity",
+							Source = "Value",
+						},
+						Red1 = Input { Value = 0.181, },
+						Green1 = Input { Value = 0.181, },
+						Blue1 = Input { Value = 0.181, },
+						Size1 = Input { Value = 1, },
+						StyledText = Input { Value = "VICCO VLOG AMAZING TITLE", },
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Extrabold Italic", },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, 16.5 } },
+					UserControls = ordered() {
+						TitleStyle = {
+							LBLC_NumInputs = 10,
+							LINKS_Name = "标题样式",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					},
+				},
+				TitleSize = BezierSpline {
+					SplineColor = { Red = 225, Green = 0, Blue = 225 },
+					NameSet = true,
+					KeyFrames = {
+						[1] = { 1, RH = { 1.33333333333333, 1.66666666666667 }, Flags = { Linear = true } },
+						[2] = { 4, LH = { 1.66666666666667, 2.33333333333333 }, RH = { 2.33333333333333, 3.96666666666667 }, Flags = { Linear = true } },
+						[3] = { 3.9, LH = { 2.66666666666667, 2.93333333333333 }, RH = { 3.33333333333333, 3.9 }, Flags = { Linear = true } },
+						[4] = { 3.9, LH = { 3.66666666666667, 3.9 }, RH = { 4.33333333333333, 3.9 }, Flags = { Linear = true } },
+						[5] = { 3.9, LH = { 4.66666666666667, 3.9 }, RH = { 5.33333333333333, 2.23333333333333 }, Flags = { Linear = true } },
+						[6] = { 0.9, LH = { 5.66666666666667, 1.56666666666667 }, RH = { 6.33333333333333, 0.966666666666667 }, Flags = { Linear = true } },
+						[7] = { 1.1, LH = { 6.66666666666667, 1.03333333333333 }, RH = { 7.33333333333333, 1.06666666666667 }, Flags = { Linear = true } },
+						[8] = { 1, LH = { 7.66666666666667, 1.03333333333333 }, RH = { 12.6666666666667, 1 }, Flags = { Linear = true } },
+						[22] = { 1, LH = { 17.3333333333333, 1 }, RH = { 22.3333333333333, 0.966666666666667 }, Flags = { Linear = true } },
+						[23] = { 0.9, LH = { 22.6666666666667, 0.933333333333333 }, RH = { 23.3333333333333, 0.933333333333333 }, Flags = { Linear = true } },
+						[24] = { 1, LH = { 23.6666666666667, 0.966666666666667 }, RH = { 24.3333333333333, 1 }, Flags = { Linear = true } },
+						[25] = { 1, LH = { 24.6666666666667, 1 }, RH = { 25.3333333333333, 1.66666666666667 }, Flags = { Linear = true } },
+						[26] = { 4, LH = { 25.6666666666667, 2.33333333333333 }, RH = { 26.3333333333333, 3.96666666666667 }, Flags = { Linear = true } },
+						[27] = { 3.9, LH = { 26.6666666666667, 2.93333333333333 }, RH = { 27.3333333333333, 3.9 }, Flags = { Linear = true } },
+						[28] = { 3.9, LH = { 27.6666666666667, 3.9 }, RH = { 28.3333333333333, 2.86666666666667 }, Flags = { Linear = true } },
+						[29] = { 2.8, LH = { 28.6666666666667, 2.83333333333333 }, Flags = { Linear = true } }
+					}
+				},
+				TitleOpacity = BezierSpline {
+					SplineColor = { Red = 244, Green = 28, Blue = 170 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+						[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, RH = { 10.3333333333333, 1 }, Flags = { Linear = true } },
+						[29] = { 1, LH = { 19.6666666666667, 1 }, RH = { 29.3333333333333, 0.666666666666667 }, Flags = { Linear = true } },
+						[30] = { 0, LH = { 29.6666666666667, 0.333333333333333 }, Flags = { Linear = true } }
+					}
+				},
+				TitleOpacity4 = BezierSpline {
+					SplineColor = { Red = 244, Green = 28, Blue = 244 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+						[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, RH = { 10.3333333333333, 1 }, Flags = { Linear = true } },
+						[29] = { 1, LH = { 19.6666666666667, 1 }, RH = { 29.3333333333333, 0.666666666666667 }, Flags = { Linear = true } },
+						[30] = { 0, LH = { 29.6666666666667, 0.333333333333333 }, Flags = { Linear = true } }
+					}
+				},
+				BG = TextPlus {
+					CtrlWZoom = false,
+					NameSet = true,
+					SourceOp = "Title",
+					Inputs = {
+						EffectMask = Input { },
+						SettingsNest = Input { },
+						ImageNest = Input { },
+						["Gamut.ColorSpaceNest"] = Input { },
+						["Gamut.GammaSpaceNest"] = Input { },
+						Layout = Input { },
+						LayoutRotation = Input { },
+						Background = Input { },
+						TransformTransform = Input { },
+						TransformRotation = Input { },
+						TransformShear = Input { Value = 1, },
+						TransformSize = Input { },
+						Enabled4 = Input { },
+						Properties1 = Input { },
+						ElementShape1 = Input { Value = 2, },
+						Level1 = Input { Value = 1, },
+						ExtendHorizontal1 = Input { Value = 0.239, },
+						ExtendVertical1 = Input { Value = 0.07, },
+						Red1 = Input { },
+						Green1 = Input { },
+						Blue1 = Input { },
+						Alpha1 = Input { },
+						Softness1 = Input { },
+						Position1 = Input { },
+						Rotation1 = Input { },
+						Shear1 = Input { },
+						Size1 = Input { Value = 1, },
+						Properties4 = Input { },
+						ElementShape4 = Input { },
+						Overlap4 = Input { },
+						Thickness4 = Input { },
+						AdaptThicknessToPerspective4 = Input { },
+						OutsideOnly4 = Input { },
+						JoinStyle4 = Input { },
+						LineStyle4 = Input { },
+						Round4 = Input { },
+						Type4 = Input { },
+						Blue4 = Input { },
+						Alpha4 = Input { },
+						ImageSource4 = Input { },
+						ColorImage4 = Input { },
+						ColorFile4 = Input { },
+						ColorBrush4 = Input { },
+						ShadingGradient4 = Input { },
+						ImageShadingSampling4 = Input { },
+						ImageShadingEdges4 = Input { },
+						ShadingMapping4 = Input { },
+						ShadingMappingAngle4 = Input { },
+						ShadingMappingSize4 = Input { },
+						ShadingMappingAspect4 = Input { },
+						ShadingMappingLevel4 = Input { },
+						Softness4 = Input { },
+						SoftnessX4 = Input { },
+						SoftnessY4 = Input { },
+						SoftnessOnFillColorToo4 = Input { },
+						SoftnessGlow4 = Input { },
+						SoftnessBlend4 = Input { },
+						Position4 = Input { },
+						PriorityBack4 = Input { },
+						Offset4 = Input { },
+						OffsetZ4 = Input { },
+						Pivot4 = Input { },
+						PivotZ4 = Input { },
+						Rotation4 = Input { },
+						AngleX4 = Input { },
+						AngleY4 = Input { },
+						AngleZ4 = Input { },
+						Shear4 = Input { },
+						ShearX4 = Input { },
+						ShearY4 = Input { },
+						Size4 = Input { },
+						SizeX4 = Input { },
+						SizeY4 = Input { },
+						TextText = Input { },
+						AdvancedFontControls = Input { },
+						ClearManualKerningPlacementOnSelection = Input { },
+						ClearAllManualKerningPlacement = Input { },
+						Internal = Input { },
+						TabSpacing = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, 49.5 } },
+					UserControls = ordered() {
+						TitleBGStyle = {
+							LBLC_NumInputs = 7,
+							LINKS_Name = "背景样式",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					},
+				},
+				Merge2 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "BG",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Title",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, 49.5 } },
+				},
+				rotate = Transform {
+					NameSet = true,
+					Inputs = {
+						Input = Input {
+							SourceOp = "Merge2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, 82.5 } },
+				},
+				KS = KeyStretcher {
+					NameSet = true,
+					Inputs = {
+						Keyframes = Input {
+							SourceOp = "rotate",
+							Source = "Output",
+						},
+						SourceEnd = Input { Value = 30, },
+						StretchStart = Input { Value = 8, },
+						StretchEnd = Input { Value = 22, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, 115.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "ViccoVlog_PTMC_Title"
+}

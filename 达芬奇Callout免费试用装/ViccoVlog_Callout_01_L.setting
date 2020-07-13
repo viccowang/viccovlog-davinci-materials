@@ -1,0 +1,1072 @@
+{
+	Tools = ordered() {
+		ViccoVlog_Callout_01_L = MacroOperator {
+			Inputs = ordered() {
+				Comments = Input { Value = "Call-out made by ViccoVlog \n(version 1.0 2020070701)\n\nfollow me: @ViccoVlog \nBilibili/Youtube/Weibo/Xigua/Wechat \n\ncopyright © 2020", },
+				Input100 = InstanceInput {
+					SourceOp = "Pos",
+					Source = "Center",
+					Page = "Controls",
+					Name = "跟踪位置",
+				},
+				Input101 = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "Center",
+					Name = "CallOut 位置",
+				},
+				Input102 = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "Point0",
+					Name = "跟踪点位置",
+					DefaultX = 0.4,
+					DefaultY = 0.379,
+				},
+				Input103 = InstanceInput {
+					SourceOp = "HeadMask",
+					Source = "Width",
+					Name = "CallOut 宽度",
+					Default = 0.3,
+				},
+				Input104 = InstanceInput {
+					SourceOp = "Pos",
+					Source = "Size",
+					Name = "大小",
+					Default = 1.0,
+				},
+				Input105 = InstanceInput {
+					SourceOp = "DS",
+					Source = "EnableStretcher",
+					Name = "启用时长自适应",
+					Page = "Controls",
+					Default = 1,
+				},
+
+				Input1 = InstanceInput {
+					SourceOp = "Merge2",
+					Source = "EnableHeadTitle",
+					Name = "启用主标题",
+					Page = "Head Title",
+					Default = 1,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "HeadPos",
+					Source = "Center",
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Head",
+					Source = "StyledText",
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Font",
+					ControlGroup = 5,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Style",
+					ControlGroup = 5,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Head",
+					Source = "Size",
+					Default = 0.0367,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "Head",
+					Source = "CharacterSpacingClone",
+					Name = "Tracking",
+					Default = 1,
+				},
+
+        TitleBG = InstanceInput {
+					SourceOp = "Title_BG",
+					Source = "TitleBG"
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Title_BG",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 3,
+					Default = 1,
+				},
+				Input302 = InstanceInput {
+					SourceOp = "Title_BG",
+					Source = "TopLeftGreen",
+					ControlGroup = 3,
+					Default = 1,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Title_BG",
+					Source = "TopLeftBlue",
+					ControlGroup = 3,
+					Default = 1,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Title_BG",
+					Source = "TopLeftAlpha",
+					ControlGroup = 3,
+					Default = 1,
+				},
+
+				Input301 = InstanceInput {
+					SourceOp = "Merge3",
+					Source = "EnableSubTitle",
+					Name = "启用副标题",
+					Default = 1,
+					Page = "Sub Title"
+				},
+				Input14 = InstanceInput {
+					SourceOp = "SubPos",
+					Source = "Center",
+				},
+				Input19 = InstanceInput {
+					SourceOp = "SubTitle",
+					Source = "StyledText",
+				},
+				Input20 = InstanceInput {
+					SourceOp = "SubTitle",
+					Source = "Font",
+					ControlGroup = 13,
+				},
+				Input21 = InstanceInput {
+					SourceOp = "SubTitle",
+					Source = "Style",
+					ControlGroup = 13,
+				},
+				Input22 = InstanceInput {
+					SourceOp = "SubTitle",
+					Source = "Size",
+					Default = 0.0327,
+				},
+				Input23 = InstanceInput {
+					SourceOp = "SubTitle",
+					Source = "CharacterSpacingClone",
+					Name = "Tracking",
+					Default = 1,
+				},
+
+        SubTitleBG = InstanceInput {
+					SourceOp = "Sub_Title_BG",
+					Source = "SubTitleBG"
+				},
+				Input15 = InstanceInput {
+					SourceOp = "Sub_Title_BG",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input16 = InstanceInput {
+					SourceOp = "Sub_Title_BG",
+					Source = "TopLeftGreen",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input17 = InstanceInput {
+					SourceOp = "Sub_Title_BG",
+					Source = "TopLeftBlue",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input18 = InstanceInput {
+					SourceOp = "Sub_Title_BG",
+					Source = "TopLeftAlpha",
+					ControlGroup = 11,
+					Default = 1,
+				},
+
+				Input25 = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "PaintApplyColor.Red",
+					Name = "Color",
+					ControlGroup = 17,
+					Default = 1,
+					Page = "Line"
+
+				},
+				Input26 = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "PaintApplyColor.Green",
+					Name = "Color",
+					ControlGroup = 17,
+					Default = 1,
+				},
+				Input27 = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "PaintApplyColor.Blue",
+					Name = "Color",
+					ControlGroup = 17,
+					Default = 1,
+				},
+				Input28 = InstanceInput {
+					SourceOp = "PolylineStroke1",
+					Source = "PaintApplyColor.Alpha",
+					Name = "Color",
+					ControlGroup = 17,
+					Default = 1,
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Pos",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				HeadTitleG = GroupOperator {
+					NameSet = true,
+					Inputs = ordered() {
+						Input1 = InstanceInput {
+							SourceOp = "Merge2",
+							Source = "Background",
+						}
+					},
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "Merge2",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo { Pos = { 935, 346.5 } },
+					Tools = ordered() {
+						Merge2 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Blend = Input {
+									Value = 0,
+									Expression = "iif(EnableHeadTitle == 1, 1, 0)",
+								},
+								Background = Input {
+									SourceOp = "BG",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "HeadPos",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, 346.5 } },
+							UserControls = ordered() { EnableHeadTitle = { INP_MaxAllowed = 1, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", ICS_ControlPage = "Head Title", CBC_TriState = false, LINKS_Name = "Enable Head Title" } }
+						},
+						HeadPos = Transform {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Center = Input { Value = { 0.5, 0.532 }, },
+								Input = Input {
+									SourceOp = "Title_BG",
+									Source = "Output",
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, 313.5 } },
+						},
+						Title_BG = Background {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "Head",
+									Source = "Output",
+								},
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input { Value = 1, },
+								TopLeftGreen = Input { Value = 1, },
+								TopLeftBlue = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, 280.5 } },
+              UserControls = ordered() {
+                TitleBG = {
+                  LBLC_NumInputs = 4,
+                  LINKS_Name = "主标题颜色",
+                  LBLC_DropDownButton = true,
+                  INPID_InputControl = "LabelControl",
+                }
+              },
+						},
+						Head = TextPlus {
+							ExtentSet = true,
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "HeadMask",
+									Source = "Mask",
+								},
+								GlobalOut = Input { Value = 20000, },
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								Center = Input {
+									SourceOp = "XYPath1",
+									Source = "Value",
+								},
+								TransformRotation = Input { Value = 1, },
+								TransformShear = Input { Value = 1, },
+								TransformSize = Input { Value = 1, },
+								StyledText = Input { Value = "ViccoVlog TOP HEAD TITLE", },
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Extrabold", },
+								Size = Input { Value = 0.0367, },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+								HTpos = Input {
+									SourceOp = "Calculation3",
+									Source = "Result",
+								}
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, 247.5 } },
+							UserControls = ordered() { HTpos = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", INP_Passive = true, ICS_ControlPage = "Layout", LINKS_Name = "HTposY" } }
+						},
+						HeadMask = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								MaskWidth = Input { Value = 1920, },
+								MaskHeight = Input { Value = 1080, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Center = Input {
+									SourceOp = "XYPath3",
+									Source = "Value",
+								},
+								Width = Input { Value = 0.3, },
+								Height = Input { Value = 0.06, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, 214.5 } },
+						}
+					},
+				},
+				XYPath1 = XYPath {
+					ShowKeyPoints = false,
+					DrawMode = "ModifyOnly",
+					CtrlWZoom = false,
+					Inputs = {
+						X = Input {
+							Value = 0.65,
+							Expression = "0.5 - HeadMask.Width / 2",
+						},
+						Y = Input {
+							Value = 0.5,
+							Expression = "Head.HTpos",
+						},
+						Center = Input {
+							Value = { 0.301, 0.642 },
+							Expression = "Point(PolylineStroke1.Center.X, PolylineStroke1.Center.Y )",
+						},
+					},
+				},
+				Calculation3 = Calculation {
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonHeadFirstOperand",
+							Source = "Value",
+						},
+					},
+				},
+				CalculationonHeadFirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[10] = { 0.4, RH = { 50.1, 0.4 }, Flags = { Linear = true } },
+						[60] = { 0.5, LH = { 16, 0.5 }, RH = { 70, 0.5 } },
+						[90] = { 0.5, LH = { 80, 0.5 }, RH = { 128.095238095239, 0.5 } },
+						[140] = { 0.4, LH = { 97.8571428571429, 0.4 } }
+					}
+				},
+				XYPath3 = XYPath {
+					ShowKeyPoints = false,
+					DrawMode = "ModifyOnly",
+					CtrlWZoom = false,
+					Inputs = {
+						X = Input {
+							Value = 0.65,
+							Expression = "0.5 - HeadMask.Width / 2",
+						},
+						Y = Input { Value = 0.5, },
+						Center = Input {
+							Value = { 0.301, 0.642 },
+							Expression = "Point(PolylineStroke1.Center.X, PolylineStroke1.Center.Y )",
+						},
+					},
+				},
+				SubTitleG = GroupOperator {
+					NameSet = true,
+					Inputs = ordered() {
+						Input1 = InstanceInput {
+							SourceOp = "Merge3",
+							Source = "Background",
+						}
+					},
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "Merge3",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo { Pos = { 1045, 346.5 } },
+					Tools = ordered() {
+						Merge3 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Blend = Input { Expression = "iif(EnableSubTitle == 1, 1, 0)", },
+								Background = Input {
+									SourceOp = "Merge2",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "SubPos",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 990, 346.5 } },
+							UserControls = ordered() { EnableSubTitle = { INP_MaxAllowed = 1, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", ICS_ControlPage = "Sub Title", CBC_TriState = false, LINKS_Name = "Enable Sub Title" } }
+						},
+						SubPos = Transform {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Center = Input { Value = { 0.5, 0.469 }, },
+								ReferenceSize = Input { Value = 1, },
+								Input = Input {
+									SourceOp = "Sub_Title_BG",
+									Source = "Output",
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 990, 313.5 } },
+						},
+						Sub_Title_BG = Background {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "SubTitle",
+									Source = "Output",
+								},
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input { Value = 1, },
+								TopLeftGreen = Input { Value = 1, },
+								TopLeftBlue = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 990, 280.5 } },
+              UserControls = ordered() {
+                SubTitleBG = {
+                  LBLC_NumInputs = 4,
+                  LINKS_Name = "副标题颜色",
+                  LBLC_DropDownButton = true,
+                  INPID_InputControl = "LabelControl",
+                }
+              },
+						},
+						SubTitle = TextPlus {
+							ExtentSet = true,
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "subMask",
+									Source = "Mask",
+								},
+								GlobalOut = Input { Value = 20000, },
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								Center = Input {
+									SourceOp = "XYPath2",
+									Source = "Value",
+								},
+								StyledText = Input { Value = "ViccoVlog bottom sub title", },
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Light", },
+								Size = Input { Value = 0.0327, },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+								STpos = Input {
+									SourceOp = "Calculation4",
+									Source = "Result",
+								}
+							},
+							ViewInfo = OperatorInfo { Pos = { 990, 247.5 } },
+							UserControls = ordered() { STpos = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", INP_Passive = true, ICS_ControlPage = "Layout", LINKS_Name = "STpos" } }
+						},
+						subMask = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							SourceOp = "HeadMask",
+							Inputs = {
+								EffectMask = Input { },
+								SettingsNest = Input { },
+								Width = Input {
+									Value = 0.3,
+									Expression = "HeadMask.Width"
+								},
+								["ShapeRasterizer.Nest"] = Input { },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 990, 214.5 } },
+						}
+					},
+				},
+				XYPath2 = XYPath {
+					ShowKeyPoints = false,
+					DrawMode = "ModifyOnly",
+					CtrlWZoom = false,
+					Inputs = {
+						X = Input {
+							Value = 0.65,
+							Expression = "0.5 - HeadMask.Width / 2",
+						},
+						Y = Input {
+							Value = 0.5,
+							Expression = "SubTitle.STpos",
+						},
+						Center = Input {
+							Value = { 0.301, 0.642 },
+							Expression = "Point(PolylineStroke1.Center.X, PolylineStroke1.Center.Y )",
+						},
+					},
+				},
+				Calculation4 = Calculation {
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonSubTitleFirstOperand",
+							Source = "Value",
+						},
+					},
+				},
+				CalculationonSubTitleFirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[10] = { 0.6, RH = { 50, 0.6 }, Flags = { Linear = true } },
+						[60] = { 0.5, LH = { 15.7, 0.5 }, RH = { 70, 0.5 } },
+						[90] = { 0.5, LH = { 80, 0.5 }, RH = { 128.095238095239, 0.5 } },
+						[140] = { 0.6, LH = { 97.8333333333333, 0.6 } }
+					}
+				},
+				CircleDot = GroupOperator {
+					NameSet = true,
+					Inputs = ordered() {
+						Input1 = InstanceInput {
+							SourceOp = "circleDotM",
+							Source = "Background",
+						}
+					},
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "circleDotM",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo { Pos = { 1155, 412.5 } },
+					Tools = ordered() {
+						circleDotM = Merge {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Background = Input {
+									SourceOp = "BG",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "Instance_circleBg_1",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 0, 106.258 } },
+						},
+						circleDot_1 = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								MaskWidth = Input { Value = 1920, },
+								MaskHeight = Input { Value = 1080, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Width = Input {
+									SourceOp = "circleDot_1Width",
+									Source = "Value",
+								},
+								Height = Input {
+									Value = 0.00909842484,
+									Expression = "Width*1.7778",
+								},
+								CornerRadius = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 0, 7.25726 } },
+						},
+						Instance_circleBg_1 = Background {
+							CtrlWShown = false,
+							NameSet = true,
+							SourceOp = "circleBg",
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "circleDot_1",
+									Source = "Mask",
+								},
+								SettingsNest = Input { },
+								ImageNest = Input { },
+								["Gamut.ColorSpaceNest"] = Input { },
+								["Gamut.GammaSpaceNest"] = Input { },
+								BackgroundNest = Input { },
+								TopLeftRed = Input {
+									Value = 1,
+									Expression = "PolylineStroke1.PaintApplyColor.Red"
+								},
+								TopLeftGreen = Input {
+									Value = 1,
+									Expression = "PolylineStroke1.PaintApplyColor.Green"
+								},
+								TopLeftBlue = Input {
+									Value = 1,
+									Expression = "PolylineStroke1.PaintApplyColor.Blue"
+								},
+								TopLeftAlpha = Input { Expression = "PolylineStroke1.PaintApplyColor.Alpha" },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 0, 49.5 } },
+						}
+					},
+				},
+				circleDot_1Width = BezierSpline {
+					SplineColor = { Red = 225, Green = 255, Blue = 0 },
+					NameSet = true,
+					KeyFrames = {
+						[35] = { 0, RH = { 38.3333333333333, 0.00170593333333333 }, Flags = { Linear = true } },
+						[45] = { 0.0051178, LH = { 41.6666666666667, 0.00341186666666667 }, RH = { 65, 0.0051178 }, Flags = { Linear = true } },
+						[105] = { 0.0051178, LH = { 85, 0.0051178 }, RH = { 108.333333333333, 0.00341186666666667 }, Flags = { Linear = true } },
+						[115] = { 0, LH = { 111.666666666667, 0.00170593333333333 }, Flags = { Linear = true } }
+					}
+				},
+				Merge4 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge3",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge5",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1155, 346.5 } },
+				},
+				Round_1 = GroupOperator {
+					NameSet = true,
+					Inputs = ordered() {
+						Input1 = InstanceInput {
+							SourceOp = "circleInnerM1",
+							Source = "Background",
+						}
+					},
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "circleInnerM2",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo { Pos = { 1045, 412.5 } },
+					Tools = ordered() {
+						circleInnerM1 = Merge {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Background = Input {
+									SourceOp = "BG",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "circleBg",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { -55, 106.258 } },
+						},
+						circleInnerM2 = Merge {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Background = Input {
+									SourceOp = "circleInnerM1",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "Instance_circleBg",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 55, 106.258 } },
+						},
+						circleBg = Background {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "innerCircle",
+									Source = "Mask",
+								},
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input {
+									Value = 1,
+									Expression = "PolylineStroke1.PaintApplyColor.Red",
+								},
+								TopLeftGreen = Input {
+									Value = 1,
+									Expression = "PolylineStroke1.PaintApplyColor.Green",
+								},
+								TopLeftBlue = Input {
+									Value = 1,
+									Expression = "PolylineStroke1.PaintApplyColor.Blue",
+								},
+								TopLeftAlpha = Input { Expression = "PolylineStroke1.PaintApplyColor.Alpha", },
+							},
+							ViewInfo = OperatorInfo { Pos = { -55, 40.2573 } },
+						},
+						OuterCircle = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								MaskWidth = Input { Value = 1920, },
+								MaskHeight = Input { Value = 1080, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Width = Input {
+									SourceOp = "OuterCircleWidth",
+									Source = "Value",
+								},
+								Height = Input {
+									Value = 0.0106668,
+									Expression = "Width * 1.7778",
+								},
+								CornerRadius = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 55, 16.4997 } },
+						},
+						innerCircle = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								BorderWidth = Input { Value = 0.0015, },
+								Solid = Input { Value = 0, },
+								MaskWidth = Input { Value = 1920, },
+								MaskHeight = Input { Value = 1080, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Width = Input {
+									SourceOp = "innerCircleWidth",
+									Source = "Value",
+								},
+								Height = Input {
+									Value = 0.0248892,
+									Expression = "Width * 1.7778",
+								},
+								CornerRadius = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { -55, 7.25726 } },
+						},
+						Instance_circleBg = Background {
+							CtrlWShown = false,
+							NameSet = true,
+							SourceOp = "circleBg",
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "OuterCircle",
+									Source = "Mask",
+								},
+								SettingsNest = Input { },
+								ImageNest = Input { },
+								["Gamut.ColorSpaceNest"] = Input { },
+								["Gamut.GammaSpaceNest"] = Input { },
+								BackgroundNest = Input { },
+								TopLeftRed = Input {
+									Value = 1,
+									Expression = "PolylineStroke1.PaintApplyColor.Red"
+								},
+								TopLeftGreen = Input {
+									Value = 1,
+									Expression = "PolylineStroke1.PaintApplyColor.Green"
+								},
+								TopLeftBlue = Input {
+									Value = 1,
+									Expression = "PolylineStroke1.PaintApplyColor.Blue"
+								},
+								TopLeftAlpha = Input { Expression = "PolylineStroke1.PaintApplyColor.Alpha" },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 55, 40.2573 } },
+						}
+					},
+				},
+				OuterCircleWidth = BezierSpline {
+					SplineColor = { Red = 225, Green = 255, Blue = 0 },
+					NameSet = true,
+					KeyFrames = {
+						[5] = { 0, RH = { 10, 0 }, Flags = { Linear = true } },
+						[20] = { 0.006, LH = { 15.0000000000001, 0.006 }, RH = { 56.6666666666667, 0.006 } },
+						[130] = { 0.006, LH = { 93.3333333333333, 0.006 }, RH = { 134.999999999999, 0.006 } },
+						[145] = { 0, LH = { 140.000000000001, 0 } }
+					}
+				},
+				innerCircleWidth = BezierSpline {
+					SplineColor = { Red = 225, Green = 255, Blue = 0 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 4.99999999999999, 0 }, Flags = { Linear = true } },
+						[15] = { 0.014, LH = { 10, 0.014 }, RH = { 55, 0.014 } },
+						[135] = { 0.014, LH = { 95, 0.014 }, RH = { 139.666666666667, 0.014 } },
+						[149] = { 0, LH = { 144.333333333333, 0 } }
+					}
+				},
+				BG = Background {
+					ExtentSet = true,
+					NameSet = true,
+					Inputs = {
+						GlobalOut = Input { Value = 20000, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input {
+							SourceOp = "Publish1",
+							Source = "Value",
+						},
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, 412.5 } },
+				},
+				Publish1 = PublishNumber {
+					CtrlWZoom = false,
+				},
+				Transform1 = Transform {
+					Inputs = {
+						Center = Input {
+							Value = { 0.4, 0.4 },
+							Expression = "Point(PolylineStroke1.Point0.X, PolylineStroke1.Point0.Y)",
+						},
+						Input = Input {
+							SourceOp = "circleInnerM2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1045, 445.5 } },
+				},
+				DS = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Mix = Input { Expression = "iif(EnableStretcher==1, 1, 0)", },
+						Background = Input {
+							SourceOp = "Merge4",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "KS",
+							Source = "Result",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1320, 346.5 } },
+					UserControls = ordered() { EnableStretcher = { INP_MaxAllowed = 1, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", ICS_ControlPage = "Controls", CBC_TriState = false, LINKS_Name = "Enable Stretcher" } }
+				},
+				KS = KeyStretcher {
+					NameSet = true,
+					Inputs = {
+						Keyframes = Input {
+							SourceOp = "Merge4",
+							Source = "Output",
+						},
+						SourceEnd = Input { Value = 150, },
+						StretchStart = Input { Value = 60, },
+						StretchEnd = Input { Value = 90, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1320, 313.5 } },
+					UserControls = ordered() { DisableKeyStretcher = { INP_MaxAllowed = 1000000, INP_Integer = true, INPID_InputControl = "ButtonControl", BTNCS_Execute = "DisableSelectedTools()", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Keyframes", ICD_Width = 1, LINKS_Name = "Disable KeyStretcher" } }
+				},
+				Transform2 = Transform {
+					Inputs = {
+						Center = Input {
+							Value = { 0.765887777603013, 0.571828297570797 },
+							Expression = "Point(PolylineStroke1.Point1.X, PolylineStroke1.Point1.Y)",
+						},
+						Input = Input {
+							SourceOp = "circleDotM",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1155, 445.5 } },
+				},
+				Merge1 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "OutterDot",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Transform1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1045, 478.5 } },
+				},
+				Merge5 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Transform2",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1155, 478.5 } },
+				},
+				OutterDot = Paint {
+					NameSet = true,
+					Inputs = {
+						Input = Input {
+							SourceOp = "BG",
+							Source = "Output",
+						},
+						Paint = Input {
+							SourceOp = "PolylineStroke1",
+							Source = "Out",
+						},
+						CalloutTitleWidth = Input {
+							Value = 0.3,
+							Expression = "HeadMask.Width",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 935, 478.5 } },
+					UserControls = ordered() { CalloutTitleWidth = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 1, INP_Default = 0, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", LINKS_Name = "Callout Title Width" } }
+				},
+				PolylineStroke1 = PolylineStroke {
+					Points = {
+					},
+					IsThreaded = true,
+					Brushes = { "SoftBrush" },
+					ApplyModes = { "PaintApplyColor" },
+					CtrlWZoom = false,
+					Inputs = {
+						BrushControls = Input { Value = 1, },
+						["SoftBrush.Size"] = Input { Value = 0.0015, },
+						["SoftBrush.Softness"] = Input { Value = 0.457, },
+						StrokeControls = Input { Value = 1, },
+						Duration = Input { Value = 0.5, },
+						WriteOnEnd = Input {
+							SourceOp = "Calculation2_1",
+							Source = "Result",
+						},
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Polyline = Input {
+							Value = Polyline {
+								Points = {
+									{ Linear = true, X = 0.1, Y = -0.121, RX = -0.0333333428700765, RY = 0.0403333325386048, PublishID = "Point0" },
+									{ Linear = true, X = -2.86102295188329e-008, Y = -2.38418573772492e-009, LX = 0.0333333428700765, LY = -0.0403333325386048, RX = -0.0999999904632568, RY = 7.9472857924164e-010, PublishID = "Point2" },
+									{ Linear = true, X = -0.3, Y = 0, LX = 0.0999999904632568, LY = -7.9472857924164e-010, PublishID = "Point1" }
+								}
+							},
+						},
+						Point0 = Input { Value = { 0.6, 0.379 }, },
+						Point1 = Input {
+							Value = { 0.609, 0.662 },
+							Expression = "Point(Center.X - OutterDot.CalloutTitleWidth, Center.Y)",
+						},
+						Point2 = Input {
+							Value = { 0.309, 0.662 },
+							Expression = "Point(Center.X, Point1.Y)",
+						},
+					},
+				},
+				Calculation2_1 = Calculation {
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonPolylineStroke1FirstOperand",
+							Source = "Value",
+						},
+					},
+				},
+				CalculationonPolylineStroke1FirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[10] = { 0, RH = { 51.6666666666667, 0 }, Flags = { Linear = true } },
+						[60] = { 1, LH = { 19, 1 }, RH = { 70, 1 } },
+						[90] = { 1, LH = { 80, 1 }, RH = { 132.426470588236, 1 } },
+						[140] = { 0, LH = { 97.3529411764706, 0 } }
+					}
+				},
+				Pos = Transform {
+					NameSet = true,
+					Inputs = {
+						Input = Input {
+							SourceOp = "DS",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1430, 346.5 } },
+				}
+			},
+			UserControls = ordered () {
+				 UIManagerButton = {
+					IC_ControlPage = -1,
+					INP_External = false,
+					INP_Passive  = true,
+					LINKS_Name = "ViccoVlog Call-out",
+					LINKID_DataType = "Number",
+					INPID_InputControl = "ButtonControl",
+					BTNCS_Execute = "",
+				 }
+			}
+		}
+	},
+	ActiveTool = "ViccoVlog_Callout_01_L"
+}

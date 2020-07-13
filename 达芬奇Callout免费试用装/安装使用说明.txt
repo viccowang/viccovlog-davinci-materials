@@ -1,0 +1,52 @@
+**************************************
+**  	ViccoVlog Callout V1.0.0	**
+**************************************
+**	Author: Vicco Wang				**
+**  Copyright: @ViccoVlog			**
+**************************************
+
+安装说明:
+
+1) 请将预设内的所有文件(.settings)复制到如下目录：
+
+注意: 一定要复制到你的安装盘下面.(任选一个安装目录)
+
+Windows
+
+[安装盘]:\Program Files\Blackmagic Design\DaVinci Resolve\Fusion\Macros
+或者
+[安装盘]:\Users\【UserName】\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion\Macros
+
+Mac
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Macros/
+或者
+/Users/【UserName】/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Macros/
+
+2) 重启你的达芬奇软件。
+
+3）进入Fusion中在特效库 > Tools > Macros中就能查看到以ViccoVlog开头的所有Call-out预设啦！
+
+**************************************
+**************************************
+
+目前版本已知的疑问：
+
+1. 预设是按照30fps帧率， 150帧，也就是5秒钟制作的，中间会有1秒的冗余时间，也就是我们看到中间的停顿时间，这个时间可以被拉长和缩短（在第一种使用办法的情况下）。那么如果你的视频片段过短，少于120fps的话，预设的动画就会播放不完整了。
+这个和标题预设的道理是一样的。
+
+2. 第二种跟踪方式目前无法做Fusion缓存，原因不明，但不影响渲染结果。
+
+2. 第二种跟踪需要手动调整关键帧来调整预设持续时间长度。
+
+3. 第二种跟踪不能调整整体大小，部分预设不支持调整大小，否则会引起跟踪点偏移。后续版本如果找到更好的展示方式会以更新的方式放出。
+
+**************************************
+**************************************
+
+有问题，可以通过以下方式联系我：
+
+1) Bilibili私信 @ViccoVlog
+2) E-mail: viccowang@hotmail.com
+3) TG Group: @ViccoVlog
+4) 加我的微信: viccowang  ，来意请注明来意，如:付费用户.
