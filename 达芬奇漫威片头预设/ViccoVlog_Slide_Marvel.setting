@@ -1,0 +1,150 @@
+{
+	Tools = ordered() {
+		ViccoVlog_Slide_Marvel = MacroOperator {
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "Slide",
+					Source = "Input",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "Blur",
+					Source = "Type",
+					Default = 2,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Calculation1",
+					Source = "SecondOperand",
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Delay",
+					Source = "Speed",
+					Default = 1,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Delay",
+					Source = "Delay",
+					Default = 0,
+				},
+				MainInput2 = InstanceInput {
+					SourceOp = "M",
+					Source = "Foreground",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "M",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Slide = Transform {
+					NameSet = true,
+					Inputs = {
+						Center = Input {
+							SourceOp = "Path1",
+							Source = "Position",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 440, 115.5 } },
+				},
+				Path1 = PolyPath {
+					DrawMode = "InsertAndModify",
+					CtrlWZoom = false,
+					Inputs = {
+						Displacement = Input {
+							SourceOp = "Path1Displacement",
+							Source = "Value",
+						},
+						PolyLine = Input {
+							Value = Polyline {
+								Points = {
+									{ Linear = true, LockY = true, X = 0, Y = 1, RX = 0, RY = -0.333333333333333 },
+									{ Linear = true, LockY = true, X = 0, Y = 0, LX = 0, LY = 0.333333333333333 }
+								}
+							},
+						},
+					},
+				},
+				Path1Displacement = BezierSpline {
+					SplineColor = { Red = 255, Green = 0, Blue = 255 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 1, 0.333333333333333 }, Flags = { Linear = true, LockedY = true } },
+						[3] = { 1, LH = { 2, 0.666666666666667 }, Flags = { Linear = true, LockedY = true } }
+					}
+				},
+				Blur = DirectionalBlur {
+					NameSet = true,
+					Inputs = {
+						Type = Input { Value = 2, },
+						Length = Input {
+							SourceOp = "Calculation1",
+							Source = "Result",
+						},
+						Angle = Input { Value = 90, },
+						Input = Input {
+							SourceOp = "Slide",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 550, 115.5 } },
+				},
+				Calculation1 = Calculation {
+					Inputs = {
+						FirstOperand = Input {
+							SourceOp = "CalculationonBlurFirstOperand",
+							Source = "Value",
+						},
+					},
+				},
+				CalculationonBlurFirstOperand = BezierSpline {
+					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 1, RH = { 1, 0.666666666666667 }, Flags = { Linear = true } },
+						[3] = { 0, LH = { 2, 0.333333333333333 }, Flags = { Linear = true } }
+					}
+				},
+				Delay = TimeSpeed {
+					NameSet = true,
+					Inputs = {
+						Delay = Input { Value = 0, },
+						Input = Input {
+							SourceOp = "Blur",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, 115.5 } },
+					UserControls = ordered() {
+						SerialNumber = {
+							LINKS_Name = "Serial Number",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Integer = false,
+							INP_MinScale = 0,
+							INP_MaxScale = 999,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 999,
+							IC_Steps = 1,
+							ICS_ControlPage = "Controls"
+						}
+					}
+				},
+				M = Merge {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Delay",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, 115.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "ViccoVlog_Slide_Marvel"
+}
