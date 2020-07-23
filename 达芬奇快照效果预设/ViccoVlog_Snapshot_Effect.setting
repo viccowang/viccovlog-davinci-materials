@@ -1,0 +1,2217 @@
+{
+	Tools = ordered() {
+		ViccoVlog_Snapshot_Effect = MacroOperator {
+			Inputs = ordered() {
+				Comments = Input { Value = "SnapShot Effect made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
+				BorderControl = InstanceInput {
+					SourceOp = "outter_wrapper_border",
+					Source = "BorderControl",
+					Page = "Controls",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "outter_wrapper_border",
+					Source = "OutterBorder",
+					Name = "显示外边框",
+					Default = 1,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "inner_wrapper_border",
+					Source = "InnterBorder",
+					Name = "显示内四角边框",
+					Default = 1,
+				},
+
+				BatteryControl = InstanceInput {
+					SourceOp = "showBattery",
+					Source = "BatteryControl",
+					Page = "Controls",
+				},
+				Input20 = InstanceInput {
+					SourceOp = "showBattery",
+					Source = "ShowBattery",
+					Name = "显示电量",
+					Default = 1,
+				},
+				Input19 = InstanceInput {
+					SourceOp = "showBattery",
+					Source = "Center",
+					Name = "电量位置",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "battery_ele",
+					Source = "Electricity",
+					Name = "剩余电量",
+					Default = 5,
+				},
+				
+				CardControl = InstanceInput {
+					SourceOp = "showCard",
+					Source = "CardControl",
+					Page = "Controls",
+				},
+				Input18 = InstanceInput {
+					SourceOp = "showCard",
+					Source = "ShowCard",
+					Name = "显示存储卡",
+					Default = 1,
+				},
+				Input17 = InstanceInput {
+					SourceOp = "showCard",
+					Source = "Center",
+					Name = "存储卡位置",
+				},
+				Input3 = InstanceInput {
+					SourceOp = "card_text",
+					Source = "CardTime",
+					Name = "剩余时长",
+					Default = 113,
+				},
+
+				ShootModel = InstanceInput {
+					SourceOp = "showModel",
+					Source = "ShootModel",
+					Page = "Controls",
+				},
+				Input10 = InstanceInput {
+					SourceOp = "showModel",
+					Source = "ShowModel",
+					Name = "开启拍摄模式",
+					Default = 1,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "showModel",
+					Source = "Model",
+					Name = "拍摄模式",
+					Default = 0,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "model_text",
+					Source = "Center",
+					Name = "拍摄模式位置",
+				},
+
+				ShootRatio = InstanceInput {
+					SourceOp = "showRatio",
+					Source = "ShootRatio",
+					Page = "Controls",
+				},
+				Input16 = InstanceInput {
+					SourceOp = "showRatio",
+					Source = "ShowRatio",
+					Name = "显示比例",
+					Default = 1,
+				},
+				Input14 = InstanceInput {
+					SourceOp = "showRatio",
+					Source = "Center",
+					Name = "比例位置",
+				},
+				Input15 = InstanceInput {
+					SourceOp = "showRatio",
+					Source = "Ratios",
+					Name = "画面比例",
+					Default = 0,
+				},
+
+				QualityFormat = InstanceInput {
+					SourceOp = "showQua",
+					Source = "QualityFormat",
+					Page = "Controls",
+				},
+				Input13 = InstanceInput {
+					SourceOp = "showQua",
+					Source = "ShowQua",
+					Name = "显示格式",
+					Default = 1,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "showQua",
+					Source = "Qua",
+					Name = "格式",
+					Default = 0,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "showQua",
+					Source = "Center",
+					Name = "格式位置",
+				},
+
+				ShootParams = InstanceInput {
+					SourceOp = "shutter_text",
+					Source = "ShootParams",
+					Page = "Controls",
+				},
+				Input6 = InstanceInput {
+					SourceOp = "shutter_text",
+					Source = "shutter",
+					Name = "快门速度",
+					Default = 50,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "expo_text",
+					Source = "Exposure",
+					Name = "曝光补偿",
+					Default = 0,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "aperture",
+					Source = "Aperture",
+					Name = "光圈",
+					Default = 3,
+				},
+				Input21 = InstanceInput {
+					SourceOp = "iso_text",
+					Source = "ISO",
+					Default = 400,
+				},
+				Input22 = InstanceInput {
+					SourceOp = "focusSelector",
+					Source = "FocusSelector",
+					Name = "对焦点样式",
+					Default = 2,
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge22",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				outter_wrapper_border = RectangleMask {
+					NameSet = true,
+					Inputs = {
+						Level = Input { Expression = "iif( OutterBorder == 1, 1, 0 )", },
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						BorderWidth = Input { Value = 0.0025, },
+						Solid = Input { Value = 0, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Width = Input { Value = 0.9, },
+						Height = Input { Value = 0.9, },
+						OutterBorder = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, -82.5 } },
+					UserControls = ordered() {
+						OutterBorder = { 
+							INP_MaxAllowed = 1, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", INP_External = false, ICS_ControlPage = "Controls", CBC_TriState = false, LINKS_Name = "Show Outter Border" 
+						},
+						BorderControl = {
+							LBLC_NumInputs = 2,
+							LINKS_Name = "边框控制",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					},
+				},
+				inner_wrapper_border = RectangleMask {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "outter_wrapper_border",
+							Source = "Mask",
+						},
+						Level = Input { Expression = "iif ( InnterBorder == 1, 1, 0 )", },
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						BorderWidth = Input { Value = 0.0025, },
+						Solid = Input { Value = 0, },
+						WritePosition = Input { Value = 0.384, },
+						WriteLength = Input { Value = 0.05, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Width = Input { Value = 0.8, },
+						Height = Input { Value = 0.8, },
+						InnterBorder = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, -49.5 } },
+					UserControls = ordered() { InnterBorder = { INP_MaxAllowed = 1, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", INP_External = false, ICS_ControlPage = "Controls", CBC_TriState = false, LINKS_Name = "Show Inner Border" } }
+				},
+				Instance_inner_wrapper_border = RectangleMask {
+					NameSet = true,
+					SourceOp = "inner_wrapper_border",
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "inner_wrapper_border",
+							Source = "Mask",
+						},
+						SettingsNest = Input { },
+						Level = Input { Expression = "iif ( inner_wrapper_border.InnterBorder == 1, 1, 0 )" },
+						WritePosition = Input { Value = 0.066, },
+						["ShapeRasterizer.Nest"] = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, -16.5 } },
+				},
+				card = GroupOperator {
+					NameSet = true,
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "Merge8",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo {
+						Pos = { 715, -16.5 },
+						Flags = {
+							AllowPan = false,
+							GridSnap = true,
+							AutoSnap = true,
+							Thumbnails = false,
+							RemoveRouters = true
+						},
+						Size = { 236, 130.886, 118, 24.2424 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -938.143, 22.2306 }
+					},
+					Tools = ordered() {
+						Merge8 = Merge {
+							Inputs = {
+								Background = Input {
+									SourceOp = "card_bg",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "card_text",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, 49.5 } },
+						},
+						card_bg = Background {
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "card_border",
+									Source = "Mask",
+								},
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input { Value = 1, },
+								TopLeftGreen = Input { Value = 1, },
+								TopLeftBlue = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, 16.5 } },
+						},
+						card_text = TextPlus {
+							NameSet = true,
+							Inputs = {
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								Center = Input { Value = { 1.02801744803741, 0.5 }, },
+								StyledText = Input {
+									Value = "1h53m",
+									Expression = "Text(math.floor(CardTime / 60) .. 'h' .. (CardTime%60) .. \"m\")",
+								},
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Semibold", },
+								Size = Input { Value = 0.7523, },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalLeftCenterRight = Input { Value = -1, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+								CardTime = Input { Value = 113, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 990, 16.5 } },
+							UserControls = ordered() { CardTime = { INP_MaxAllowed = 360, INP_Integer = true, INP_External = false, INPID_InputControl = "SliderControl", IC_Steps = 1, INP_MaxScale = 360, INP_Default = 90, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", ICS_ControlPage = "Controls", LINKS_Name = "CardTime" } }
+						},
+						card_border = PolylineMask {
+							DrawMode = "InsertAndModify",
+							DrawMode2 = "InsertAndModify",
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								BorderWidth = Input { Value = 0.025, },
+								Solid = Input { Value = 0, },
+								MaskWidth = Input { Value = 3840, },
+								MaskHeight = Input { Value = 2160, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Center = Input { Value = { 0.506948304613674, 0.472153246100123 }, },
+								Polyline = Input {
+									SourceOp = "card_borderPolyline",
+									Source = "Value",
+								},
+								Polyline2 = Input {
+									Value = Polyline {
+									},
+									Disabled = true,
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, -16.5 } },
+						}
+					},
+				},
+				card_borderPolyline = BezierSpline {
+					SplineColor = { Red = 173, Green = 255, Blue = 47 },
+					NameSet = true,
+					KeyFrames = {
+						[87] = { 0, Flags = { Linear = true, LockedY = true }, Value = Polyline {
+								Closed = true,
+								Points = {
+									{ Linear = true, X = -0.2745556453046, Y = 0.372659187191881, LX = 0.000311738081650452, LY = -0.228106922424688, RX = 0.199251629739749, RY = 0 },
+									{ Linear = true, X = 0.323199243914646, Y = 0.372659187191881, LX = -0.199251629739749, LY = 0, RX = 0, RY = -0.124875995527881 },
+									{ Linear = true, X = 0.323199243914646, Y = -0.00196879939176142, LX = 0, LY = 0.124875995527881, RX = -0.0662846267223358, RY = -0.103230926896807 },
+									{ Linear = true, X = 0.124345363747639, Y = -0.311661580082183, LX = 0.0662846267223358, LY = 0.103230926896807, RX = -0.132655264935763, RY = 0 },
+									{ Linear = true, X = -0.273620431059649, Y = -0.311661580082183, LX = 0.132655264935763, LY = 0, RX = -0.000311738081650452, RY = 0.228106922424688 }
+								}
+							} }
+					}
+				},
+				battery = GroupOperator {
+					CtrlWZoom = false,
+					NameSet = true,
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "Merge6",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo {
+						Pos = { 605, -16.5 },
+						Flags = {
+							AllowPan = false,
+							GridSnap = true,
+							AutoSnap = true,
+							Thumbnails = false,
+							RemoveRouters = true
+						},
+						Size = { 615.492, 187.457, 228, 24.2424 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -601.072, 139.801 }
+					},
+					Tools = ordered() {
+						Merge2 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "Merge1",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "battery_z_bg",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 660, -16.5 } },
+						},
+						Merge4 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "Merge2",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "battery_ele",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 770, -16.5 } },
+						},
+						Merge1 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "battery_bg",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "battery_wrapper_bg",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 550, -16.5 } },
+						},
+						battery_d = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								MaskWidth = Input { Value = 1920, },
+								MaskHeight = Input { Value = 1080, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Center = Input { Value = { 0.169445600978572, 0.501426533523538 }, },
+								Width = Input { Value = 0.112, },
+								Height = Input { Value = 0.4017623, },
+								CornerRadius = Input { Value = 0.2, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 770, -115.5 } },
+						},
+						battery_d_bg = Background {
+							CtrlWShown = false,
+							NameSet = true,
+							SourceOp = "battery_z_bg",
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "battery_d",
+									Source = "Mask",
+								},
+								SettingsNest = Input { },
+								ImageNest = Input { },
+								["Gamut.ColorSpaceNest"] = Input { },
+								["Gamut.GammaSpaceNest"] = Input { },
+								BackgroundNest = Input { },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 770, -82.5 } },
+						},
+						battery_ele = Fuse.Duplicate {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Copies = Input {
+									Value = 5,
+									Expression = "Electricity",
+								},
+								Center = Input { Value = { 0.649, 0.5 }, },
+								Pivot = Input { Value = { 0.314, 0.5 }, },
+								RandomSeed = Input { Value = 26024, },
+								Background = Input {
+									SourceOp = "battery_d_bg",
+									Source = "Output",
+								},
+								Electricity = Input { Value = 5, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 770, -49.5 } },
+							UserControls = ordered() { Electricity = { INP_MaxAllowed = 5, INP_Integer = true, INP_External = false, INPID_InputControl = "SliderControl", IC_Steps = 1, INP_MaxScale = 5, INP_Default = 4, INP_MinScale = 1, INP_MinAllowed = 1, LINKID_DataType = "Number", ICS_ControlPage = "Controls", LINKS_Name = "Electricity" } }
+						},
+						Batteray_z = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								MaskWidth = Input { Value = 1920, },
+								MaskHeight = Input { Value = 1080, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Center = Input { Value = { 0.894721927174768, 0.5 }, },
+								Width = Input { Value = 0.0614301, },
+								Height = Input { Value = 0.27483778933321, },
+								CornerRadius = Input { Value = 0.4, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 660, -115.5 } },
+						},
+						battery_z_bg = Background {
+							CtrlWShown = false,
+							NameSet = true,
+							SourceOp = "battery_wrapper_bg",
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "Batteray_z",
+									Source = "Mask",
+								},
+								SettingsNest = Input { },
+								ImageNest = Input { },
+								["Gamut.ColorSpaceNest"] = Input { },
+								["Gamut.GammaSpaceNest"] = Input { },
+								BackgroundNest = Input { },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 660, -82.5 } },
+						},
+						battery_wrapper_bg = Background {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "batterywrapper",
+									Source = "Mask",
+								},
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input { Value = 1, },
+								TopLeftGreen = Input { Value = 1, },
+								TopLeftBlue = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 550, -82.5 } },
+						},
+						batterywrapper = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								BorderWidth = Input { Value = 0.025, },
+								Solid = Input { Value = 0, },
+								MaskWidth = Input { Value = 1920, },
+								MaskHeight = Input { Value = 1080, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Center = Input { Value = { 0.46788997544865, 0.5 }, },
+								Width = Input { Value = 0.808131241084165, },
+								Height = Input { Value = 0.5741034, },
+								CornerRadius = Input { Value = 0.2, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 550, -115.5 } },
+						},
+						battery_ele_text = TextPlus {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								Center = Input { Value = { 0.0615258397477563, 0.5 }, },
+								StyledText = Input {
+									Value = "100%",
+									Expression = "Text( math.floor(battery_ele.Copies * 20) .. \"%\")",
+								},
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Semibold", },
+								Size = Input { Value = 0.7523, },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalLeftCenterRight = Input { Value = -1, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, -82.5 } },
+						},
+						Merge6 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "Merge4",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "battery_ele_text",
+									Source = "Output",
+								},
+								Center = Input { Value = { 1.54881510242335, 0.5 }, },
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 880, -16.5 } },
+						},
+						battery_bg = Background {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftAlpha = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 440, -16.5 } },
+						}
+					},
+				},
+				ratio = GroupOperator {
+					CtrlWZoom = false,
+					NameSet = true,
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "Merge8_1",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo {
+						Pos = { 825, -16.5 },
+						Flags = {
+							AllowPan = false,
+							GridSnap = true,
+							AutoSnap = true,
+							Thumbnails = false,
+							RemoveRouters = true
+						},
+						Size = { 236, 130.886, 118, 24.2424 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -876.072, 55.2306 }
+					},
+					Tools = ordered() {
+						Merge8_1 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "ratio_text",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "ratio_bg",
+									Source = "Output",
+								},
+								Operator = Input { Value = FuID { "Held Out" }, },
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 825, 16.5 } },
+						},
+						ratio_text = TextPlus {
+							NameSet = true,
+							Inputs = {
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								StyledText = Input {
+									Value = "16:9",
+									Expression = "showRatio.Ratios.Value",
+								},
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Semibold", },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 935, 16.5 } },
+						},
+						ratio_bg = Background {
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "ratio_wrapper",
+									Source = "Mask",
+								},
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input { Value = 1, },
+								TopLeftGreen = Input { Value = 1, },
+								TopLeftBlue = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 825, -16.5 } },
+						},
+						ratio_wrapper = RectangleMask {
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								MaskWidth = Input { Value = 3840, },
+								MaskHeight = Input { Value = 2160, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Width = Input { Value = 0.111689694018373, },
+								Height = Input { Value = 0.0948294642435809, },
+								CornerRadius = Input { Value = 0.189, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 825, -49.5 } },
+						}
+					},
+				},
+				qua = GroupOperator {
+					CtrlWZoom = false,
+					NameSet = true,
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "Merge8_1_1",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo {
+						Pos = { 935, -16.5 },
+						Flags = {
+							AllowPan = false,
+							GridSnap = true,
+							AutoSnap = true,
+							Thumbnails = false,
+							RemoveRouters = true
+						},
+						Size = { 236, 130.886, 118, 24.2424 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -883.143, 55.2306 }
+					},
+					Tools = ordered() {
+						Merge8_1_1 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "qua_text",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "qua_bg",
+									Source = "Output",
+								},
+								Operator = Input { Value = FuID { "Held Out" }, },
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 825, 16.5 } },
+						},
+						qua_text = TextPlus {
+							NameSet = true,
+							Inputs = {
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								StyledText = Input {
+									Value = "RAW",
+									Expression = "showQua.Qua.Value",
+								},
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Semibold", },
+								Size = Input { Value = 0.07, },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 935, 16.5 } },
+						},
+						qua_bg = Background {
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "qua_wrapper",
+									Source = "Mask",
+								},
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input { Value = 1, },
+								TopLeftGreen = Input { Value = 1, },
+								TopLeftBlue = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 825, -16.5 } },
+						},
+						qua_wrapper = RectangleMask {
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								MaskWidth = Input { Value = 3840, },
+								MaskHeight = Input { Value = 2160, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Width = Input { Value = 0.1116896940184, },
+								Height = Input { Value = 0.0948294642436, },
+								CornerRadius = Input { Value = 0.189, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 825, -49.5 } },
+						}
+					},
+				},
+				model_text = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Center = Input { Value = { 0.8630946536043, 0.839333 }, },
+						Opacity1 = Input { Expression = "iif( showModel.ShowModel== 1, 1, 0 )", },
+						StyledText = Input {
+							Value = "M",
+							Expression = "showModel.Model.Value",
+						},
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Semibold", },
+						Size = Input { Value = 0.1, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1045, -16.5 } },
+				},
+				shutter_text = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Center = Input { Value = { 0.152299542716613, 0.146666666666667 }, },
+						StyledText = Input {
+							Value = "1/50",
+							Expression = "\"1/\".. shutter",
+						},
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Regular", },
+						Size = Input { Value = 0.0505, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = -1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1155, -16.5 } },
+					UserControls = ordered() { 
+						shutter = { INP_MaxAllowed = 8000, INP_Integer = true, INPID_InputControl = "ScrewControl", IC_Steps = 10, INP_MaxScale = 8000, INP_Default = 50, INP_MinScale = 10, INP_MinAllowed = 10, LINKID_DataType = "Number", INP_External = false, ICS_ControlPage = "Controls", LINKS_Name = "shutter" },
+						ShootParams = {
+							LBLC_NumInputs = 5,
+							LINKS_Name = "拍摄参数",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					}
+				},
+				aperture_text = TextPlus {
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Center = Input { Value = { 0.34926044548217, 0.146666666666667 }, },
+						StyledText = Input {
+							Value = "F1.8",
+							Expression = "\"F\" .. aperture.Aperture.Value",
+						},
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Regular", },
+						Size = Input { Value = 0.0505, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalLeftCenterRight = Input { Value = -1, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1265, -16.5 } },
+				},
+				expo = GroupOperator {
+					CtrlWZoom = false,
+					NameSet = true,
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "Merge19",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo {
+						Pos = { 1375, -16.5 },
+						Flags = {
+							AllowPan = false,
+							GridSnap = true,
+							AutoSnap = true,
+							Thumbnails = false,
+							RemoveRouters = true
+						},
+						Size = { 697.976, 319.497, 283.777, 87.8106 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -1426.07, 40.9944 }
+					},
+					Tools = ordered() {
+						Merge19 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "Merge14",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "expo_text",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1375, 49.5 } },
+						},
+						expo_text = TextPlus {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								Center = Input { Value = { 0.586427943142559, 0.146666666666667 }, },
+								StyledText = Input {
+									Value = "0.0",
+									Expression = ":if math.floor(Exposure) < Exposure then return math.abs(Exposure - Exposure%0.1) else return math.abs(Exposure) .. \".0\"; end; ",
+								},
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Regular", },
+								Size = Input { Value = 0.0505, },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalLeftCenterRight = Input { Value = -1, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 1485, 49.5 } },
+							UserControls = ordered() { Exposure = { INP_MaxAllowed = 3, INP_Integer = false, INP_External = false, INPID_InputControl = "ScrewControl", IC_Steps = 1, INP_MaxScale = 3, INP_Default = 0, INP_MinScale = -3, INP_MinAllowed = -3, LINKID_DataType = "Number", ICS_ControlPage = "Controls", LINKS_Name = "Exposure" } }
+						},
+						Transform4 = Transform {
+							Inputs = {
+								Center = Input { Value = { 0.549829809751354, 0.145644673897801 }, },
+								Size = Input { Value = 0.054, },
+								Input = Input {
+									SourceOp = "Merge18",
+									Source = "Output",
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 1375, -16.5 } },
+						},
+						expo_prefix = GroupOperator {
+							NameSet = true,
+							Outputs = {
+								Output1 = InstanceOutput {
+									SourceOp = "Merge18",
+									Source = "Output",
+								}
+							},
+							ViewInfo = GroupInfo {
+								Pos = { 1430, -82.5 },
+								Flags = {
+									AllowPan = false,
+									GridSnap = true,
+									AutoSnap = true,
+									Thumbnails = false,
+									RemoveRouters = true
+								},
+								Size = { 401, 294.295, 200.5, 24.2424 },
+								Direction = "Horizontal",
+								PipeStyle = "Direct",
+								Scale = 1,
+								Offset = { -1515.64, 155.659 }
+							},
+							Tools = ordered() {
+								expo_sub_mask = RectangleMask {
+									CtrlWShown = false,
+									NameSet = true,
+									Inputs = {
+										Filter = Input { Value = FuID { "Fast Gaussian" }, },
+										BorderWidth = Input { Value = 0.025, },
+										MaskWidth = Input { Value = 3840, },
+										MaskHeight = Input { Value = 2160, },
+										PixelAspect = Input { Value = { 1, 1 }, },
+										UseFrameFormatSettings = Input { Value = 1, },
+										ClippingMode = Input { Value = FuID { "None" }, },
+										Width = Input { Value = 0.4, },
+										Height = Input { Value = 0.712, },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1485, -148.5 } },
+								},
+								expo_sub = PolylineMask {
+									DrawMode = "InsertAndModify",
+									DrawMode2 = "InsertAndModify",
+									CtrlWShown = false,
+									NameSet = true,
+									Inputs = {
+										EffectMask = Input {
+											SourceOp = "expo_sub_mask",
+											Source = "Mask",
+										},
+										Filter = Input { Value = FuID { "Fast Gaussian" }, },
+										PaintMode = Input { Value = FuID { "Subtract" }, },
+										MaskWidth = Input { Value = 3840, },
+										MaskHeight = Input { Value = 2160, },
+										PixelAspect = Input { Value = { 1, 1 }, },
+										UseFrameFormatSettings = Input { Value = 1, },
+										ClippingMode = Input { Value = FuID { "None" }, },
+										Polyline = Input {
+											SourceOp = "expo_subPolyline",
+											Source = "Value",
+										},
+										Polyline2 = Input {
+											Value = Polyline {
+											},
+											Disabled = true,
+										},
+									},
+									ViewInfo = OperatorInfo { Pos = { 1485, -115.5 } },
+								},
+								expo_border = RectangleMask {
+									CtrlWShown = false,
+									NameSet = true,
+									Inputs = {
+										Filter = Input { Value = FuID { "Fast Gaussian" }, },
+										BorderWidth = Input { Value = 0.025, },
+										Solid = Input { Value = 0, },
+										MaskWidth = Input { Value = 3840, },
+										MaskHeight = Input { Value = 2160, },
+										PixelAspect = Input { Value = { 1, 1 }, },
+										UseFrameFormatSettings = Input { Value = 1, },
+										ClippingMode = Input { Value = FuID { "None" }, },
+										Width = Input { Value = 0.4, },
+										Height = Input { Value = 0.712, },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1375, -82.5 } },
+								},
+								expo_bg = Background {
+									NameSet = true,
+									Inputs = {
+										EffectMask = Input {
+											SourceOp = "expo_sub",
+											Source = "Mask",
+										},
+										GlobalOut = Input { Value = 72, },
+										Width = Input { Value = 3840, },
+										Height = Input { Value = 2160, },
+										UseFrameFormatSettings = Input { Value = 1, },
+										["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+										TopLeftRed = Input { Value = 1, },
+										TopLeftGreen = Input { Value = 1, },
+										TopLeftBlue = Input { Value = 1, },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1485, -82.5 } },
+								},
+								expo_border_bg = Background {
+									NameSet = true,
+									SourceOp = "expo_bg",
+									Inputs = {
+										EffectMask = Input {
+											SourceOp = "expo_border",
+											Source = "Mask",
+										},
+										SettingsNest = Input { },
+										ImageNest = Input { },
+										["Gamut.ColorSpaceNest"] = Input { },
+										["Gamut.GammaSpaceNest"] = Input { },
+										BackgroundNest = Input { },
+										CommentsNest = Input { },
+										FrameRenderScriptNest = Input { },
+										StartRenderScripts = Input { },
+										EndRenderScripts = Input { },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1375, -49.5 } },
+								},
+								Merge8_2 = Merge {
+									CtrlWShown = false,
+									Inputs = {
+										Background = Input {
+											SourceOp = "expo_bg",
+											Source = "Output",
+										},
+										Foreground = Input {
+											SourceOp = "expo_border_bg",
+											Source = "Output",
+										},
+										PerformDepthMerge = Input { Value = 0, },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1485, -49.5 } },
+								},
+								expo_strac_bg = Background {
+									NameSet = true,
+									SourceOp = "expo_border_bg",
+									Inputs = {
+										EffectMask = Input {
+											SourceOp = "expo_strac",
+											Source = "Mask",
+										},
+										SettingsNest = Input { },
+										ImageNest = Input { },
+										["Gamut.ColorSpaceNest"] = Input { },
+										["Gamut.GammaSpaceNest"] = Input { },
+										BackgroundNest = Input { },
+										CommentsNest = Input { },
+										FrameRenderScriptNest = Input { },
+										StartRenderScripts = Input { },
+										EndRenderScripts = Input { },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1650, -49.5 } },
+								},
+								Merge17 = Merge {
+									CtrlWShown = false,
+									Inputs = {
+										EffectMask = Input {
+											SourceOp = "expo_strac",
+											Source = "Mask",
+										},
+										Background = Input {
+											SourceOp = "Merge8_2",
+											Source = "Output",
+										},
+										Foreground = Input {
+											SourceOp = "expo_strac_bg",
+											Source = "Output",
+										},
+										Operator = Input { Value = FuID { "Held Out" }, },
+										PerformDepthMerge = Input { Value = 0, },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1485, -16.5 } },
+								},
+								expo_strac = RectangleMask {
+									CtrlWShown = false,
+									NameSet = true,
+									Inputs = {
+										Filter = Input { Value = FuID { "Fast Gaussian" }, },
+										MaskWidth = Input { Value = 3840, },
+										MaskHeight = Input { Value = 2160, },
+										PixelAspect = Input { Value = { 1, 1 }, },
+										UseFrameFormatSettings = Input { Value = 1, },
+										ClippingMode = Input { Value = FuID { "None" }, },
+										Center = Input { Value = { 0.586997193638915, 0.337078651685393 }, },
+										Width = Input { Value = 0.171749298409729, },
+										Height = Input { Value = 0.0453333333333334, },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1650, -16.5 } },
+								},
+								Instance_expo_strac_bg = Background {
+									NameSet = true,
+									SourceOp = "expo_strac_bg",
+									Inputs = {
+										EffectMask = Input {
+											SourceOp = "expo_add_2",
+											Source = "Mask",
+										},
+										SettingsNest = Input { },
+										ImageNest = Input { },
+										["Gamut.ColorSpaceNest"] = Input { },
+										["Gamut.GammaSpaceNest"] = Input { },
+										BackgroundNest = Input { },
+										CommentsNest = Input { },
+										FrameRenderScriptNest = Input { },
+										StartRenderScripts = Input { },
+										EndRenderScripts = Input { },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1650, 16.5 } },
+								},
+								Merge18 = Merge {
+									CtrlWShown = false,
+									Inputs = {
+										Background = Input {
+											SourceOp = "Merge17",
+											Source = "Output",
+										},
+										Foreground = Input {
+											SourceOp = "Instance_expo_strac_bg",
+											Source = "Output",
+										},
+										PerformDepthMerge = Input { Value = 0, },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1485, 16.5 } },
+								},
+								expo_add_2 = RectangleMask {
+									CtrlWShown = false,
+									NameSet = true,
+									Inputs = {
+										EffectMask = Input {
+											SourceOp = "expo_add_1",
+											Source = "Mask",
+										},
+										Filter = Input { Value = FuID { "Fast Gaussian" }, },
+										MaskWidth = Input { Value = 3840, },
+										MaskHeight = Input { Value = 2160, },
+										PixelAspect = Input { Value = { 1, 1 }, },
+										UseFrameFormatSettings = Input { Value = 1, },
+										ClippingMode = Input { Value = FuID { "None" }, },
+										Center = Input { Value = { 0.432647333956969, 0.627340823970037 }, },
+										Width = Input { Value = 0.171749298409729, },
+										Height = Input { Value = 0.0453333333333334, },
+										Angle = Input { Value = 90, },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1650, 49.5 } },
+								},
+								expo_add_1 = RectangleMask {
+									CtrlWShown = false,
+									NameSet = true,
+									Inputs = {
+										Filter = Input { Value = FuID { "Fast Gaussian" }, },
+										MaskWidth = Input { Value = 3840, },
+										MaskHeight = Input { Value = 2160, },
+										PixelAspect = Input { Value = { 1, 1 }, },
+										UseFrameFormatSettings = Input { Value = 1, },
+										ClippingMode = Input { Value = FuID { "None" }, },
+										Center = Input { Value = { 0.432647333956969, 0.627340823970037 }, },
+										Width = Input { Value = 0.171749298409729, },
+										Height = Input { Value = 0.0453333333333334, },
+									},
+									ViewInfo = OperatorInfo { Pos = { 1650, 82.5 } },
+								}
+							},
+						},
+						Merge14 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "Transform4",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "expo_symbol",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1375, 16.5 } },
+						},
+						expo_symbol = TextPlus {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								Center = Input { Value = { 0.57494721054605, 0.145918437997646 }, },
+								StyledText = Input {
+									Value = "+",
+									Expression = "iif( expo_text.Exposure >= 0, \"+\", \"-\")\n",
+								},
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Regular", },
+								Size = Input { Value = 0.0505, },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 1485, 16.5 } },
+						}
+					},
+				},
+				expo_subPolyline = BezierSpline {
+					SplineColor = { Red = 173, Green = 255, Blue = 47 },
+					NameSet = true,
+					KeyFrames = {
+						[70] = { 0, Flags = { Linear = true, LockedY = true }, Value = Polyline {
+								Closed = true,
+								Points = {
+									{ Linear = true, X = 0.222170259249445, Y = 0.402621716707387, LX = -0.156566187658182, LY = 0.0012507669966754, RX = -0.156566187658182, RY = -0.283181507072856 },
+									{ Linear = true, X = -0.247528303725101, Y = -0.446922804511182, LX = 0.156566187658182, LY = 0.283181507072856, RX = 0, RY = 0.284432274069532 },
+									{ Linear = true, X = -0.247528303725101, Y = 0.406374017697413, LX = 0, LY = -0.284432274069532, RX = 0.156566187658182, RY = -0.0012507669966754 }
+								}
+							} }
+					}
+				},
+				aperture = Transform {
+					NameSet = true,
+					Inputs = {
+						Input = Input {
+							SourceOp = "aperture_text",
+							Source = "Output",
+						},
+						Aperture = Input { Value = FuID { "1.8" }, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1265, 16.5 } },
+					UserControls = ordered() { Aperture = { { CCS_AddString = "1.0", CCID_AddID = "1.0" }, { CCS_AddString = "1.4", CCID_AddID = "1.4" }, { CCS_AddString = "1.8", CCID_AddID = "1.8" }, { CCS_AddString = "2.0", CCID_AddID = "2.0" }, { CCS_AddString = "2.8", CCID_AddID = "2.8" }, { CCS_AddString = "4.0", CCID_AddID = "4.0" }, { CCS_AddString = "5.6", CCID_AddID = "5.6" }, { CCS_AddString = "8.0", CCID_AddID = "8.0" }, { CCS_AddString = "9.0", CCID_AddID = "9.0" }, { CCS_AddString = "10", CCID_AddID = "10" }, { CCS_AddString = "14", CCID_AddID = "14" }, { CCS_AddString = "22", CCID_AddID = "22" }, INP_MaxAllowed = 10, INP_Integer = true, INPID_InputControl = "ComboIDControl", CC_LabelPosition = "Horizontal", INP_MaxScale = 10, INP_Default = 3, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "FuID", ICS_ControlPage = "Controls", INP_External = false, LINKS_Name = "Aperture" } }
+				},
+				showModel = Transform {
+					NameSet = true,
+					Inputs = {
+						Input = Input {
+							SourceOp = "model_text",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1045, 16.5 } },
+					UserControls = ordered() { 
+						Model = { { CCS_AddString = "M", CCID_AddID = "M" }, { CCS_AddString = "S", CCID_AddID = "S" }, { CCS_AddString = "A", CCID_AddID = "A" }, { CCS_AddString = "P", CCID_AddID = "P" }, INP_MaxAllowed = 3, INP_Integer = true, INPID_InputControl = "ComboIDControl", CC_LabelPosition = "Horizontal", INP_MaxScale = 3, INP_Default = 0, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "FuID", INP_External = false, ICS_ControlPage = "Controls", LINKS_Name = "Model" }, ShowModel = { INP_MaxAllowed = 1, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", INP_External = false, CBC_TriState = false, ICS_ControlPage = "Controls", LINKS_Name = "Show Model" },
+						ShootModel = {
+							LBLC_NumInputs = 3,
+							LINKS_Name = "拍摄模式",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					}
+				},
+				showQua = Transform {
+					NameSet = true,
+					Inputs = {
+						Center = Input { Value = { 0.8149015932521, 0.860667 }, },
+						Size = Input {
+							Value = 0.35,
+							Expression = "iif( ShowQua == 1, 0.35, 0 )",
+						},
+						Input = Input {
+							SourceOp = "Merge8_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 935, 16.5 } },
+					UserControls = ordered() {
+						Qua = { 
+							{ CCS_AddString = "RAW", CCID_AddID = "RAW" }, 
+							{ CCS_AddString = "JPG", CCID_AddID = "JPG" }, 
+							INP_MaxAllowed = 1, 
+							INP_Integer = false, 
+							INPID_InputControl = "ComboIDControl", 
+							CC_LabelPosition = "Horizontal",
+							INP_MaxScale = 1, 
+							INP_Default = 0, 
+							INP_MinScale = 0, 
+							INP_MinAllowed = 0, 
+							LINKID_DataType = "FuID", 
+							INP_External = false, 
+							ICS_ControlPage = "Controls", 
+							LINKS_Name = "Qua" 
+						}, 
+						ShowQua = { 
+							INP_MaxAllowed = 1, 
+							INP_Integer = false, 
+							INPID_InputControl = "CheckboxControl", 
+							INP_MaxScale = 1, 
+							INP_Default = 1, 
+							INP_MinScale = 0, 
+							INP_MinAllowed = 0, 
+							LINKID_DataType = "Number", 
+							INP_External = false, 
+							CBC_TriState = false, 
+							ICS_ControlPage = "Controls", 
+							LINKS_Name = "Show Qua" 
+						},
+						QualityFormat = {
+							LBLC_NumInputs = 3,
+							LINKS_Name = "拍摄格式",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					}
+				},
+				showRatio = Transform {
+					NameSet = true,
+					Inputs = {
+						Center = Input { Value = { 0.7715027425993, 0.860667 }, },
+						Size = Input {
+							Value = 0.35,
+							Expression = "iif( ShowRatio == 1, 0.35, 0 )",
+						},
+						Input = Input {
+							SourceOp = "Merge8_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 825, 16.5 } },
+					UserControls = ordered() { 
+						Ratios = { { CCS_AddString = "3:2", CCID_AddID = "3:2" }, { CCS_AddString = "4:3", CCID_AddID = "4:3" }, { CCS_AddString = "5:4", CCID_AddID = "5:4" }, { CCS_AddString = "16:9", CCID_AddID = "16:9" }, INP_MaxAllowed = 3, INP_Integer = false, INPID_InputControl = "ComboIDControl", CC_LabelPosition = "Horizontal", INP_MaxScale = 3, INP_Default = 0, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "FuID", INP_External = false, ICS_ControlPage = "Controls", LINKS_Name = "Ratios" }, ShowRatio = {
+							LINKS_Name = "Show Ratio",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "CheckboxControl",
+							INP_Default = 1,
+							INP_Integer = true,
+							INP_MinScale = 0,
+							INP_MaxScale = 1,
+							INP_MinAllowed = 0,
+							INP_MaxAllowed = 1,
+							CBC_TriState = false,
+							ICS_ControlPage = "Controls",
+							INP_External = false
+						},
+						ShootRatio = {
+							LBLC_NumInputs = 3,
+							LINKS_Name = "画面比例",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					}
+				},
+				showCard = Transform {
+					NameSet = true,
+					Inputs = {
+						Center = Input { Value = { 0.147664898297284, 0.818535550861684 }, },
+						Size = Input {
+							Value = 0.35,
+							Expression = "iif( ShowCard == 1, .04, 0 )",
+						},
+						Input = Input {
+							SourceOp = "Merge8",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 715, 16.5 } },
+					UserControls = ordered() { 
+						ShowCard = { INP_MaxAllowed = 1, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", INP_External = false, ICS_ControlPage = "Controls", CBC_TriState = false, LINKS_Name = "Show Card" },
+						CardControl = {
+							LBLC_NumInputs = 3,
+							LINKS_Name = "存储卡设置",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					},
+						
+				},
+				showBattery = Transform {
+					NameSet = true,
+					Inputs = {
+						Center = Input { Value = { 0.144418855342816, 0.855940409683416 }, },
+						Size = Input {
+							Value = 0.35,
+							Expression = "iif( ShowBattery == 1, 0.04, 0)",
+						},
+						Input = Input {
+							SourceOp = "Merge6",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 605, 16.5 } },
+					UserControls = ordered() { 
+						ShowBattery = { INP_MaxAllowed = 1, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", INP_External = false, ICS_ControlPage = "Controls", CBC_TriState = false, LINKS_Name = "Show Battery" },
+						BatteryControl = {
+							LBLC_NumInputs = 3,
+							LINKS_Name = "电池控制",
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+						}
+					}
+				},
+				Instance_Instance_inner_wrapper_border = RectangleMask {
+					NameSet = true,
+					SourceOp = "Instance_inner_wrapper_border",
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Instance_inner_wrapper_border",
+							Source = "Mask",
+						},
+						SettingsNest = Input { },
+						Level = Input { Expression = "iif ( inner_wrapper_border.InnterBorder == 1, 1, 0 )" },
+						WritePosition = Input { Value = 0.885, },
+						["ShapeRasterizer.Nest"] = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, 16.5 } },
+				},
+				iso = GroupOperator {
+					NameSet = true,
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "Merge14_1",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo { Pos = { 1485, -16.5 } },
+					Tools = ordered() {
+						iso_text = TextPlus {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								Center = Input { Value = { 0.800647487164271, 0.146666666666667 }, },
+								StyledText = Input {
+									Value = "400",
+									Expression = "ISO",
+								},
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Regular", },
+								Size = Input { Value = 0.0505, },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalLeftCenterRight = Input { Value = -1, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 1485, 16.5 } },
+							UserControls = ordered() { ISO = { INP_MaxAllowed = 12500, INP_Integer = true, INPID_InputControl = "ScrewControl", IC_Steps = 100, INP_MaxScale = 12500, INP_Default = 400, INP_MinScale = 100, INP_MinAllowed = 100, LINKID_DataType = "Number", INP_External = false, ICS_ControlPage = "Controls", LINKS_Name = "ISO" } }
+						},
+						Merge14_1 = Merge {
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "iso_text_prefix",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "iso_text",
+									Source = "Output",
+								},
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1375, 16.5 } },
+						},
+						iso_text_prefix = TextPlus {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								Center = Input { Value = { 0.771221536357964, 0.146666666666667 }, },
+								StyledText = Input { Value = "ISO", },
+								Font = Input { Value = "Open Sans", },
+								Style = Input { Value = "Bold", },
+								Size = Input { Value = 0.0505, },
+								VerticalJustificationNew = Input { Value = 3, },
+								HorizontalJustificationNew = Input { Value = 3, },
+								ManualFontKerningPlacement = Input {
+									Value = StyledText {
+										Array = {
+										},
+										Value = ""
+									},
+								},
+							},
+							ViewInfo = OperatorInfo { Pos = { 1375, -16.5 } },
+						}
+					},
+				},
+				Instance_Instance_Instance_inner_wrapper_border = RectangleMask {
+					NameSet = true,
+					SourceOp = "Instance_Instance_inner_wrapper_border",
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Instance_Instance_inner_wrapper_border",
+							Source = "Mask",
+						},
+						SettingsNest = Input { },
+						Level = Input { Expression = "iif ( inner_wrapper_border.InnterBorder == 1, 1, 0 )" },
+						WritePosition = Input { Value = 0.564, },
+						["ShapeRasterizer.Nest"] = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, 49.5 } },
+				},
+				focus_1 = GroupOperator {
+					NameSet = true,
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "focus_bg",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo {
+						Pos = { 1650, -16.5 },
+						Flags = {
+							AllowPan = false,
+							GridSnap = true,
+							AutoSnap = true,
+							Thumbnails = false,
+							RemoveRouters = true
+						},
+						Size = { 126, 130.886, 63, 24.2424 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -1650, 55.2306 }
+					},
+					Tools = ordered() {
+						focus_bg = Background {
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "focus_circle",
+									Source = "Mask",
+								},
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input { Value = 0.583, },
+								TopLeftGreen = Input { Value = 0.583, },
+								TopLeftBlue = Input { Value = 0.583, },
+								TopLeftAlpha = Input { Value = 0.504, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1650, 16.5 } },
+						},
+						focus_circle = EllipseMask {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "focus_f",
+									Source = "Mask",
+								},
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								BorderWidth = Input { Value = 0.004, },
+								Solid = Input { Value = 0, },
+								MaskWidth = Input { Value = 3840, },
+								MaskHeight = Input { Value = 2160, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Width = Input { Value = 0.184774798631148, },
+								Height = Input { Value = 0.184774798631148, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1650, -16.5 } },
+						},
+						focus_f = RectangleMask {
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								BorderWidth = Input { Value = 0.004, },
+								Solid = Input { Value = 0, },
+								MaskWidth = Input { Value = 3840, },
+								MaskHeight = Input { Value = 2160, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Width = Input { Value = 0.06, },
+								Height = Input { Value = 0.1068, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1650, -49.5 } },
+						}
+					},
+				},
+				wrapper_border_bg = Background {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Instance_Instance_Instance_inner_wrapper_border",
+							Source = "Mask",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 1, },
+						TopLeftBlue = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, 82.5 } },
+				},
+				showFocus1 = Transform {
+					NameSet = true,
+					Inputs = {
+						Size = Input { Expression = "iif( focusSelector.FocusSelector == 0, .3, 0 )", },
+						Input = Input {
+							SourceOp = "focus_bg",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1650, 16.5 } },
+				},
+				focus_2 = GroupOperator {
+					CtrlWZoom = false,
+					NameSet = true,
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "focus_bg_2",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo {
+						Pos = { 1760, -16.5 },
+						Flags = {
+							AllowPan = false,
+							GridSnap = true,
+							AutoSnap = true,
+							Thumbnails = false,
+							RemoveRouters = true
+						},
+						Size = { 126, 196.886, 63, 24.2424 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -1760, 88.9449 }
+					},
+					Tools = ordered() {
+						focus_bg_2 = Background {
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "focus_2_l",
+									Source = "Mask",
+								},
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input { Value = 0.614, },
+								TopLeftGreen = Input { Value = 0.614, },
+								TopLeftBlue = Input { Value = 0.614, },
+								TopLeftAlpha = Input { Value = 0.504, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1760, 49.5 } },
+						},
+						focus_2_l = RectangleMask {
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "focus_2_r",
+									Source = "Mask",
+								},
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								MaskWidth = Input { Value = 3840, },
+								MaskHeight = Input { Value = 2160, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Center = Input { Value = { 0.414, 0.5 }, },
+								Width = Input { Value = 0.0442471, },
+								Height = Input { Value = 0.0104895104895105, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1760, 16.5 } },
+						},
+						focus_2_r = RectangleMask {
+							NameSet = true,
+							SourceOp = "focus_2_l",
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "focus_2_t",
+									Source = "Mask",
+								},
+								SettingsNest = Input { },
+								Center = Input { Value = { 0.586, 0.5 }, },
+								["ShapeRasterizer.Nest"] = Input { },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1760, -16.5 } },
+						},
+						focus_2_t = RectangleMask {
+							NameSet = true,
+							SourceOp = "focus_2_l",
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "focus_2_b",
+									Source = "Mask",
+								},
+								SettingsNest = Input { },
+								Center = Input { Value = { 0.5, 0.644882832518052 }, },
+								Angle = Input { Value = 90, },
+								["ShapeRasterizer.Nest"] = Input { },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1760, -49.5 } },
+						},
+						focus_2_b = RectangleMask {
+							NameSet = true,
+							SourceOp = "focus_2_t",
+							Inputs = {
+								EffectMask = Input { },
+								SettingsNest = Input { },
+								Center = Input { Value = { 0.5, 0.354197617410087 }, },
+								["ShapeRasterizer.Nest"] = Input { },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1760, -82.5 } },
+						}
+					},
+				},
+				showFocus2 = Transform {
+					NameSet = true,
+					Inputs = {
+						Size = Input { Expression = "iif( focusSelector.FocusSelector == 1, .3, 0 )", },
+						Input = Input {
+							SourceOp = "focus_bg_2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1760, 16.5 } },
+				},
+				focus_3 = GroupOperator {
+					NameSet = true,
+					Outputs = {
+						Output1 = InstanceOutput {
+							SourceOp = "focus_bg_3",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo { Pos = { 1870, -16.5 } },
+					Tools = ordered() {
+						focus_bg_3 = Background {
+							NameSet = true,
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "Instance_Instance_Instance_inner_wrapper_border_1",
+									Source = "Mask",
+								},
+								GlobalOut = Input { Value = 72, },
+								Width = Input { Value = 3840, },
+								Height = Input { Value = 2160, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftRed = Input { Value = 0.614, },
+								TopLeftGreen = Input { Value = 0.614, },
+								TopLeftBlue = Input { Value = 0.614, },
+								TopLeftAlpha = Input { Value = 0.504, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1870, 49.5 } },
+						},
+						Instance_Instance_Instance_inner_wrapper_border_1 = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							SourceOp = "Instance_Instance_inner_wrapper_border_1",
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "Instance_Instance_inner_wrapper_border_1",
+									Source = "Mask",
+								},
+								SettingsNest = Input { },
+								WritePosition = Input { Value = 0.59, },
+								["ShapeRasterizer.Nest"] = Input { },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1870, 16.5 } },
+						},
+						Instance_Instance_inner_wrapper_border_1 = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							SourceOp = "Instance_inner_wrapper_border_1",
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "Instance_inner_wrapper_border_1",
+									Source = "Mask",
+								},
+								SettingsNest = Input { },
+								WritePosition = Input { Value = 0.856, },
+								["ShapeRasterizer.Nest"] = Input { },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1870, -16.5 } },
+						},
+						Instance_inner_wrapper_border_1 = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							SourceOp = "inner_wrapper_border_1",
+							Inputs = {
+								EffectMask = Input {
+									SourceOp = "inner_wrapper_border_1",
+									Source = "Mask",
+								},
+								SettingsNest = Input { },
+								WritePosition = Input { Value = 0.093, },
+								["ShapeRasterizer.Nest"] = Input { },
+								CommentsNest = Input { },
+								FrameRenderScriptNest = Input { },
+								StartRenderScripts = Input { },
+								EndRenderScripts = Input { },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1870, -49.5 } },
+						},
+						inner_wrapper_border_1 = RectangleMask {
+							CtrlWShown = false,
+							NameSet = true,
+							Inputs = {
+								Filter = Input { Value = FuID { "Fast Gaussian" }, },
+								BorderWidth = Input { Value = 0.0025, },
+								Solid = Input { Value = 0, },
+								WritePosition = Input { Value = 0.357, },
+								WriteLength = Input { Value = 0.05, },
+								MaskWidth = Input { Value = 1920, },
+								MaskHeight = Input { Value = 1080, },
+								PixelAspect = Input { Value = { 1, 1 }, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								ClippingMode = Input { Value = FuID { "None" }, },
+								Width = Input { Value = 0.2, },
+								Height = Input { Value = 0.356, },
+								InnterBorder = Input { Value = 1, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 1870, -82.5 } },
+							UserControls = ordered() { InnterBorder = { INP_MaxAllowed = 1, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", INP_External = false, ICS_ControlPage = "Controls", CBC_TriState = false, LINKS_Name = "Show Inner Border" } }
+						}
+					},
+				},
+				Merge21 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge15",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "showFocus2",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1760, 115.5 } },
+				},
+				Merge9 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge7",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "showRatio",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 825, 115.5 } },
+				},
+				Merge3 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge5",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "showBattery",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 605, 115.5 } },
+				},
+				Merge5 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background1_2",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "wrapper_border_bg",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 495, 115.5 } },
+				},
+				Merge20 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge16",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge14_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1485, 115.5 } },
+				},
+				Merge13 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge12",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "aperture",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1265, 115.5 } },
+				},
+				Merge12 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge11",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "shutter_text",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1155, 115.5 } },
+				},
+				Merge22 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge21",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "focusSelector",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1870, 115.5 } },
+				},
+				Background1_2 = Background {
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 385, 115.5 } },
+				},
+				Merge7 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge3",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "showCard",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 715, 115.5 } },
+				},
+				Merge16 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge13",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge19",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1375, 115.5 } },
+				},
+				focusSelector = Transform {
+					NameSet = true,
+					Inputs = {
+						Size = Input { Expression = "iif( FocusSelector == 2, .3, 0 )", },
+						Input = Input {
+							SourceOp = "focus_bg_3",
+							Source = "Output",
+						},
+						FocusSelector = Input { Value = 2, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1870, 16.5 } },
+					UserControls = ordered() { FocusSelector = { { CCS_AddString = "经典" }, { CCS_AddString = "十字" }, { CCS_AddString = "方框" }, INP_MaxAllowed = 2, INP_Integer = true, INPID_InputControl = "ComboControl", CC_LabelPosition = "Horizontal", INP_MaxScale = 2, INP_Default = 3, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", INP_External = false, ICS_ControlPage = "Controls", LINKS_Name = "Focus Selector" } }
+				},
+				Merge15 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge20",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "showFocus1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1650, 115.5 } },
+				},
+				Merge11 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge10",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "showModel",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1045, 115.5 } },
+				},
+				Merge10 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge9",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "showQua",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 935, 115.5 } },
+				}
+			},
+			UserControls = ordered () {
+				 UIManagerButton = {
+					IC_ControlPage = -1,
+					INP_External = false,
+					INP_Passive  = true,
+					LINKS_Name = "ViccoVlog Snapshot Effect",
+					LINKID_DataType = "Number",
+					INPID_InputControl = "ButtonControl",
+					BTNCS_Execute = "",
+				 }
+			}
+		}
+	},
+	ActiveTool = "ViccoVlog_Snapshot_Effect"
+}
