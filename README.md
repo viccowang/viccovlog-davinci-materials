@@ -17,6 +17,8 @@
 按照视频发布日期对应从前往后
 ```
 
+*  [Vicco] 在达芬奇中玩转快照效果 | 达芬奇三分钟 | [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87%E5%BF%AB%E7%85%A7%E6%95%88%E6%9E%9C%E9%A2%84%E8%AE%BE)
+---
 * [Vicco] 在达芬奇里用漫威片头的方式打开其他漫画 | [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87%E6%BC%AB%E5%A8%81%E7%89%87%E5%A4%B4%E9%A2%84%E8%AE%BE)
 * [Vicco] 在达芬奇复刻Peter McKinnon标题字幕预设 | 白嫖下载 [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87PTMC%E6%A0%87%E9%A2%98%E9%A2%84%E8%AE%BE)
 * [Vicco] 达芬奇Call-out呼出框自制预设包 | 50+小时的努力帮你快速提高视频展现力 [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87Callout%E5%85%8D%E8%B4%B9%E8%AF%95%E7%94%A8%E8%A3%85)
