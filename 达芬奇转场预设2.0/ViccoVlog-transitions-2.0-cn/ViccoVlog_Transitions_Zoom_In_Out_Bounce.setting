@@ -1,7 +1,6 @@
 {
 	Tools = ordered() {
-		ViccoVlog_Transitions_Zoom_In = MacroOperator {
-			CtrlWZoom = false,
+		ViccoVlog_Transitions_Zoom_In_Out_Bounce = MacroOperator {
 			Inputs = ordered() {
 				Comments = Input { Value = "Transition made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
 				MainInput1 = InstanceInput {
@@ -15,10 +14,10 @@
 				Input1 = InstanceInput {
 					SourceOp = "ColorSplit",
 					Source = "ColorSplit",
-					Name = "色调分离",
 					Page = "Controls",
-					Default = 1,
-				}
+					Name = "色调分离",
+					Default = 0,
+				},
 			},
 			Outputs = {
 				MainOutput1 = InstanceOutput {
@@ -26,20 +25,7 @@
 					Source = "Output",
 				}
 			},
-			ViewInfo = GroupInfo {
-				Pos = { 385, 82.5 },
-				Flags = {
-					AllowPan = false,
-					GridSnap = true,
-					AutoSnap = true,
-					RemoveRouters = true
-				},
-				Size = { 841, 231.364, 420.5, 24.2424 },
-				Direction = "Horizontal",
-				PipeStyle = "Orthogonal",
-				Scale = 1,
-				Offset = { 0, 0 }
-			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
 			Tools = ordered() {
 				zoom2 = Transform {
 					NameSet = true,
@@ -51,7 +37,7 @@
 						},
 						Edges = Input { Value = 3, },
 					},
-					ViewInfo = OperatorInfo { Pos = { -358, 8.25758 } },
+					ViewInfo = OperatorInfo { Pos = { 165, 82.5 } },
 				},
 				Calculation4 = Calculation {
 					CtrlWZoom = false,
@@ -65,17 +51,19 @@
 				},
 				Calculationonzoom2FirstOperand = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
-						[12] = { 0.25, RH = { 12, 0.691999999999975 } },
-						[23] = { 1, LH = { 12.1, 1 } }
+						[12] = { 2, RH = { 12, 1.68677669449963 } },
+						[17] = { 0.923999999999999, LH = { 13.56, 0.923999999999999 }, RH = { 19.6666666666667, 0.923999999999999 } },
+						[21] = { 1.026, LH = { 19.6666666666667, 1.026 }, RH = { 21.7466666666667, 1.026 } },
+						[23] = { 1, LH = { 22.3333333333333, 1 } }
 					}
 				},
 				Dissolve1 = Dissolve {
 					Transitions = {
 						[0] = "DFTDissolve"
 					},
-					CtrlWShown = false,
 					Inputs = {
 						Mix = Input {
 							SourceOp = "Calculation7",
@@ -94,11 +82,12 @@
 							Source = "Value",
 						},
 					},
-					ViewInfo = OperatorInfo { Pos = { -151.75, 140.258 } },
+					ViewInfo = OperatorInfo { Pos = { 385, 181.5 } },
 					UserControls = ordered() { T1 = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", LINKS_Name = "T1" } }
 				},
 				Calculation7 = Calculation {
 					CtrlWZoom = false,
+					CtrlWShown = false,
 					Inputs = {
 						FirstOperand = Input {
 							SourceOp = "CalculationonDissolve1FirstOperand",
@@ -109,6 +98,7 @@
 				},
 				CalculationonDissolve1FirstOperand = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
 						[11] = { 0, RH = { 11.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
@@ -116,37 +106,9 @@
 					}
 				},
 				ResolveParameter2 = ResolveParameter {
-				},
-				zoom1 = Transform {
-					NameSet = true,
-					Inputs = {
-						Size = Input {
-							SourceOp = "Calculation3",
-							Source = "Result",
-						},
-					},
-					ViewInfo = OperatorInfo { Pos = { -358, 173.258 } },
-				},
-				Calculation3 = Calculation {
-					CtrlWZoom = false,
-					Inputs = {
-						FirstOperand = Input {
-							SourceOp = "Calculationonzoom1FirstOperand",
-							Source = "Value",
-						},
-						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
-					},
-				},
-				Calculationonzoom1FirstOperand = BezierSpline {
-					SplineColor = { Red = 69, Green = 242, Blue = 198 },
-					NameSet = true,
-					KeyFrames = {
-						[0] = { 1, RH = { 9.6, 1 } },
-						[11] = { 2, LH = { 11, 1.508 } }
-					}
+					CtrlWShown = false,
 				},
 				["缩放模糊1"] = ofx.com.blackmagicdesign.resolvefx.zoomblur {
-					CtrlWShown = false,
 					Inputs = {
 						Source = Input {
 							SourceOp = "Dissolve1",
@@ -172,9 +134,10 @@
 						legacyIsProcessRGBOnly = Input { Value = 0, },
 						resolvefxVersion = Input { Value = "1.3", },
 					},
-					ViewInfo = OperatorInfo { Pos = { 13.25, 140.258 } },
+					ViewInfo = OperatorInfo { Pos = { 550, 181.5 } },
 				},
 				Calculation5 = Calculation {
+					CtrlWShown = false,
 					Inputs = {
 						FirstOperand = Input {
 							SourceOp = "Calculationon缩放模糊1FirstOperand",
@@ -185,6 +148,7 @@
 				},
 				["Calculationon缩放模糊1FirstOperand"] = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
 						[0] = { 0, RH = { 4, 0.157 }, Flags = { Linear = true } },
@@ -192,43 +156,37 @@
 						[23] = { 0, LH = { 19.3333333333333, 0.157 }, Flags = { Linear = true } }
 					}
 				},
-				LensDistort1 = LensDistort {
-					CtrlWShown = false,
+				zoom1 = Transform {
+					NameSet = true,
 					Inputs = {
-						Mode = Input { Value = 0, },
-						EdgeMode = Input { Value = 1, },
-						LensDistortionModel = Input { Value = 1, },
-						["DEClassicLDModel.Distortion"] = Input {
-							SourceOp = "Calculation6",
+						Size = Input {
+							SourceOp = "Calculation3",
 							Source = "Result",
 						},
-						Input = Input {
-							SourceOp = "缩放模糊1",
-							Source = "Output",
-						},
 					},
-					ViewInfo = OperatorInfo { Pos = { 178.25, 140.258 } },
+					ViewInfo = OperatorInfo { Pos = { 165, 247.5 } },
 				},
-				Calculation6 = Calculation {
+				Calculation3 = Calculation {
+					CtrlWZoom = false,
 					Inputs = {
 						FirstOperand = Input {
-							SourceOp = "CalculationonLensDistort1FirstOperand",
+							SourceOp = "Calculationonzoom1FirstOperand",
 							Source = "Value",
 						},
 						FirstOperandTimeScale = Input { Expression = "23/comp.RenderEnd", },
 					},
 				},
-				CalculationonLensDistort1FirstOperand = BezierSpline {
+				Calculationonzoom1FirstOperand = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
-						[0] = { 0, RH = { 4, 0 } },
-						[12] = { -0.208, LH = { 8.00040006637573, -0.208 }, RH = { 15.6662999391556, -0.208 } },
-						[23] = { 0, LH = { 19.3333333333333, 0 } }
+						[0] = { 1, RH = { 9.6, 1 } },
+						[11] = { 2, LH = { 11, 1.508 } }
 					}
 				},
 				ColorSplit = Transform {
-					CtrlWShown = false,
+					CtrlWZoom = false,
 					NameSet = true,
 					Inputs = {
 						Blend = Input {
@@ -237,52 +195,26 @@
 						},
 						ProcessGreen = Input { Value = 0, },
 						Size = Input {
-							Value = 0,
+							Value = 1.01511574391888,
 							Expression = "CST",
 						},
 						XSize = Input { Value = 1.095883, },
 						YSize = Input { Value = 1.095883, },
 						Input = Input {
-							SourceOp = "LensDistort1",
+							SourceOp = "缩放模糊1",
 							Source = "Output",
 						},
 						CST = Input {
 							SourceOp = "Calculation2",
 							Source = "Result",
 						},
-						ColorSplit = Input { Value = 1, },
 					},
-					ViewInfo = OperatorInfo { Pos = { 357, 140.258 } },
-					UserControls = ordered() {
-						CST = {
-							INP_MaxAllowed = 1000000,
-							INP_Integer = false,
-							INPID_InputControl = "SliderControl",
-							INP_MaxScale = 1,
-							INP_Default = 0.5,
-							INP_MinScale = 0,
-							INP_MinAllowed = -1000000,
-							LINKID_DataType = "Number",
-							ICS_ControlPage = "Controls",
-							LINKS_Name = "CST"
-						},
-						ColorSplit = {
-							INP_MaxAllowed = 1000000,
-							INP_Integer = false,
-							INPID_InputControl = "CheckboxControl",
-							INP_MaxScale = 1,
-							INP_Default = 0,
-							INP_MinScale = 0,
-							INP_MinAllowed = -1000000,
-							LINKID_DataType = "Number",
-							ICS_ControlPage = "Controls",
-							CBC_TriState = false,
-							LINKS_Name = "ColorSplit"
-						}
-					}
+					ViewInfo = OperatorInfo { Pos = { 770, 181.5 } },
+					UserControls = ordered() { CST = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 1, INP_Default = 0.5, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", LINKS_Name = "CST" }, ColorSplit = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 0, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", CBC_TriState = false, LINKS_Name = "ColorSplit" } }
 				},
 				Calculation2 = Calculation {
 					CtrlWZoom = false,
+					CtrlWShown = false,
 					Inputs = {
 						FirstOperand = Input {
 							SourceOp = "CalculationonColorSplitFirstOperand",
@@ -293,6 +225,7 @@
 				},
 				CalculationonColorSplitFirstOperand = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
+					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
 						[3] = { 1, RH = { 8.53846153846154, 0.999965384615384 } },
@@ -303,5 +236,5 @@
 			},
 		}
 	},
-	ActiveTool = "ViccoVlog_Transitions_Zoom_In"
+	ActiveTool = "ViccoVlog_Transitions_Zoom_In_Out_Bounce"
 }

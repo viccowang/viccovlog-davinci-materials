@@ -1,6 +1,7 @@
 {
 	Tools = ordered() {
 		ViccoVlog_Transitions_Zoom_In = MacroOperator {
+			CtrlWZoom = false,
 			Inputs = ordered() {
 				Comments = Input { Value = "Transition made by ViccoVlog \n\nBilibili: @ViccoVlog \nYoutube: @ViccoVlog \nWeibo: @ViccoVlog", },
 				MainInput1 = InstanceInput {
@@ -14,9 +15,10 @@
 				Input1 = InstanceInput {
 					SourceOp = "ColorSplit",
 					Source = "ColorSplit",
+					Name = "色调分离",
 					Page = "Controls",
 					Default = 1,
-				},
+				}
 			},
 			Outputs = {
 				MainOutput1 = InstanceOutput {
@@ -24,10 +26,22 @@
 					Source = "Output",
 				}
 			},
-			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			ViewInfo = GroupInfo {
+				Pos = { 385, 82.5 },
+				Flags = {
+					AllowPan = false,
+					GridSnap = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 841, 231.364, 420.5, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Orthogonal",
+				Scale = 1,
+				Offset = { 0, 0 }
+			},
 			Tools = ordered() {
 				zoom2 = Transform {
-					CtrlWZoom = false,
 					NameSet = true,
 					Inputs = {
 						Pivot = Input { Expression = "zoom1.Pivot", },
@@ -35,12 +49,12 @@
 							SourceOp = "Calculation4",
 							Source = "Result",
 						},
+						Edges = Input { Value = 3, },
 					},
-					ViewInfo = OperatorInfo { Pos = { 550, -82.5 } },
+					ViewInfo = OperatorInfo { Pos = { -358, 8.25758 } },
 				},
 				Calculation4 = Calculation {
 					CtrlWZoom = false,
-					CtrlWShown = false,
 					Inputs = {
 						FirstOperand = Input {
 							SourceOp = "Calculationonzoom2FirstOperand",
@@ -51,10 +65,9 @@
 				},
 				Calculationonzoom2FirstOperand = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
-					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
-						[12] = { 2, RH = { 12, 1.59200000000001 } },
+						[12] = { 0.25, RH = { 12, 0.691999999999975 } },
 						[23] = { 1, LH = { 12.1, 1 } }
 					}
 				},
@@ -62,6 +75,7 @@
 					Transitions = {
 						[0] = "DFTDissolve"
 					},
+					CtrlWShown = false,
 					Inputs = {
 						Mix = Input {
 							SourceOp = "Calculation7",
@@ -80,7 +94,7 @@
 							Source = "Value",
 						},
 					},
-					ViewInfo = OperatorInfo { Pos = { 756.25, 49.5 } },
+					ViewInfo = OperatorInfo { Pos = { -151.75, 140.258 } },
 					UserControls = ordered() { T1 = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", LINKS_Name = "T1" } }
 				},
 				Calculation7 = Calculation {
@@ -102,7 +116,6 @@
 					}
 				},
 				ResolveParameter2 = ResolveParameter {
-					CtrlWShown = false,
 				},
 				zoom1 = Transform {
 					NameSet = true,
@@ -112,10 +125,10 @@
 							Source = "Result",
 						},
 					},
-					ViewInfo = OperatorInfo { Pos = { 550, 82.5 } },
+					ViewInfo = OperatorInfo { Pos = { -358, 173.258 } },
 				},
 				Calculation3 = Calculation {
-					CtrlWShown = false,
+					CtrlWZoom = false,
 					Inputs = {
 						FirstOperand = Input {
 							SourceOp = "Calculationonzoom1FirstOperand",
@@ -126,7 +139,6 @@
 				},
 				Calculationonzoom1FirstOperand = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
-					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
 						[0] = { 1, RH = { 9.6, 1 } },
@@ -134,6 +146,7 @@
 					}
 				},
 				["缩放模糊1"] = ofx.com.blackmagicdesign.resolvefx.zoomblur {
+					CtrlWShown = false,
 					Inputs = {
 						Source = Input {
 							SourceOp = "Dissolve1",
@@ -159,10 +172,9 @@
 						legacyIsProcessRGBOnly = Input { Value = 0, },
 						resolvefxVersion = Input { Value = "1.3", },
 					},
-					ViewInfo = OperatorInfo { Pos = { 921.25, 49.5 } },
+					ViewInfo = OperatorInfo { Pos = { 13.25, 140.258 } },
 				},
 				Calculation5 = Calculation {
-					CtrlWShown = false,
 					Inputs = {
 						FirstOperand = Input {
 							SourceOp = "Calculationon缩放模糊1FirstOperand",
@@ -173,7 +185,6 @@
 				},
 				["Calculationon缩放模糊1FirstOperand"] = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
-					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
 						[0] = { 0, RH = { 4, 0.157 }, Flags = { Linear = true } },
@@ -182,6 +193,7 @@
 					}
 				},
 				LensDistort1 = LensDistort {
+					CtrlWShown = false,
 					Inputs = {
 						Mode = Input { Value = 0, },
 						EdgeMode = Input { Value = 1, },
@@ -195,10 +207,9 @@
 							Source = "Output",
 						},
 					},
-					ViewInfo = OperatorInfo { Pos = { 1086.25, 49.5 } },
+					ViewInfo = OperatorInfo { Pos = { 178.25, 140.258 } },
 				},
 				Calculation6 = Calculation {
-					CtrlWShown = false,
 					Inputs = {
 						FirstOperand = Input {
 							SourceOp = "CalculationonLensDistort1FirstOperand",
@@ -209,7 +220,6 @@
 				},
 				CalculationonLensDistort1FirstOperand = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
-					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
 						[0] = { 0, RH = { 4, 0 } },
@@ -218,6 +228,7 @@
 					}
 				},
 				ColorSplit = Transform {
+					CtrlWShown = false,
 					NameSet = true,
 					Inputs = {
 						Blend = Input {
@@ -226,7 +237,7 @@
 						},
 						ProcessGreen = Input { Value = 0, },
 						Size = Input {
-							Value = 1.09588281934741,
+							Value = 0,
 							Expression = "CST",
 						},
 						XSize = Input { Value = 1.095883, },
@@ -241,7 +252,7 @@
 						},
 						ColorSplit = Input { Value = 1, },
 					},
-					ViewInfo = OperatorInfo { Pos = { 1265, 49.5 } },
+					ViewInfo = OperatorInfo { Pos = { 357, 140.258 } },
 					UserControls = ordered() {
 						CST = {
 							INP_MaxAllowed = 1000000,
@@ -272,7 +283,6 @@
 				},
 				Calculation2 = Calculation {
 					CtrlWZoom = false,
-					CtrlWShown = false,
 					Inputs = {
 						FirstOperand = Input {
 							SourceOp = "CalculationonColorSplitFirstOperand",
@@ -283,7 +293,6 @@
 				},
 				CalculationonColorSplitFirstOperand = BezierSpline {
 					SplineColor = { Red = 69, Green = 242, Blue = 198 },
-					CtrlWShown = false,
 					NameSet = true,
 					KeyFrames = {
 						[3] = { 1, RH = { 8.53846153846154, 0.999965384615384 } },
