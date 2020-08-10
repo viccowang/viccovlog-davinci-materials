@@ -17,6 +17,7 @@
 按照视频发布日期对应从前往后
 ```
 
+*  [Vicco] 在达芬奇中玩转循环动画 | Loop Animation | [素材与插件下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E5%9C%A8%E8%BE%BE%E8%8A%AC%E5%A5%87%E4%B8%AD%E7%8E%A9%E8%BD%AC%E5%BE%AA%E7%8E%AF%E5%8A%A8%E7%94%BB)
 *  [Vicco] 在达芬奇中玩转快照效果 | 达芬奇三分钟 | [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87%E5%BF%AB%E7%85%A7%E6%95%88%E6%9E%9C%E9%A2%84%E8%AE%BE)
 ---
 * [Vicco] 在达芬奇里用漫威片头的方式打开其他漫画 | [预设下载](https://github.com/viccowang/viccovlog-davinci-materials/tree/master/%E8%BE%BE%E8%8A%AC%E5%A5%87%E6%BC%AB%E5%A8%81%E7%89%87%E5%A4%B4%E9%A2%84%E8%AE%BE)
